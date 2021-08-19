@@ -7,9 +7,9 @@ There are not so many changes from the old style, if you managed to find it.
 
 # Formatting style
 
-## Indentation
+## 缩进
 
-[1TBS](https://en.wikipedia.org/wiki/Indentation_style#Variant:_1TBS_(OTBS)) (based K&R) indent style with 4 space indent, NO hard tabs (all tabs replaced by spaces).
+[1TBS](https://en.wikipedia.org/wiki/Indentation_style#Variant:_1TBS_(OTBS)) (based K&R) 4个空格缩进，没有硬件制表符(所有制表符都用空格代替)。
 
 ## Tool support
 
@@ -29,9 +29,9 @@ Sometimes, for example, you may want other columns and line breaks so it looks l
 
 Note2: The Astyle settings have been tested and will produce a nice result. Many files will be changed, mostly to the better but maybe not always, so use with care. 
 
-## Curly Braces
+## 大括号
 
-Functions shall have the opening brace at the beginning of the next line.
+函数在下一行的开始处应该有一个大括号。
 ```
 int function(int x)
 {
@@ -39,9 +39,10 @@ int function(int x)
 }
 ```
 
-All non-function statement blocks (if, switch, for) shall have the opening brace last on the same line, with the following statement on the next line.
+所有非函数语句块(if、switch、for)的左大括号应该放在同一行最后，接下来的语句从下一行开始。
 
-Closing braces shall be but on the line after the last statement in the block.
+右大括号只能在代码块中最后一条语句的下一行。
+
 ```
 if (x is true) {
     we do y
@@ -62,7 +63,7 @@ default:
 }
 ```
 
-If it is followed by an `else` or `else if` that shall be on the same line, again with the opening brace on the same line.
+如果后面跟着`else`或者`else if`，则应该放在右大括号的同一行，且再次将左大括号放在同一行上。
 ```
 if (x is true) {
     we do y
@@ -74,47 +75,43 @@ if (x is true) {
 ```
 
 Omission of "unnecessary" braces in cases where an `if` or `else` block consists only of a single statement is not permissible in any case. These "single statement blocks" are future bugs waiting to happen when more statements are added without enclosing the block in braces.
+在`if`或`else`块只包含一条语句的情况下，不允许省略“不必要的”大括号。这些“单条语句块”可能是未来的一个bug，比如当更多的语句被添加时，你可能会忘了用大括号把语句括起来。
 
-## Spaces
+## 空格
 
-Use a space after (most) keywords.  The notable exceptions are sizeof, typeof, alignof, and __attribute__, which look somewhat like functions (and are usually used with parentheses).
-So use a space after these keywords:
+在(大多数)关键字之后添加一个空格。值得注意的一些例外情况包括sizeof、typeof、alignof和__attribute__，它们看起来有点像函数(通常与括号一起使用)。因此，在一下关键词后加上空格:
 ```
 if, switch, case, for, do, while
 ```
-but not with sizeof, typeof, alignof, or __attribute__.  E.g.,
+但不适用于sizeof, typeof, alignof, 或者 __attribute__ 等关键词。
 ```
 s = sizeof(struct file);
 ```
-When declaring pointer data or a function that returns a pointer type, the preferred use of '*' is adjacent to the data name or function name and not adjacent to the type name.  Examples:
+当定义指针数据或返回指针类型的函数时，‘*’应靠近数据名称或函数名称，而不是类型名称。例如：
 ```
 char *linux_banner;
 memparse(char *ptr, char **retptr);
 char *match_strdup(substring_t *s);
 ```
-Use one space around (on each side of) most binary and ternary operators, such as any of these:
+在大多数二元和三元运算符前后各使用一个空格，比如下面的任何一个:
 ```
 =  +  -  <  >  *  /  %  |  &  ^  <=  >=  ==  !=  ?  :
 ```
-but no space after unary operators:
+但一元运算符后没有空格:
 ```
 &  *  +  -  ~  !  sizeof  typeof  alignof  __attribute__  defined
 ```
-no space before the postfix increment & decrement unary operators:
+在递增和递减一元运算符前后都不要有空格
 ```
 ++  --
 ```
-no space after the prefix increment & decrement unary operators:
-```
-++  --
-```
-and no space around the '.' and "->" structure member operators.
+ '.' 和 "->" 结构成员操作符前后没有空格
 
-'*' and '&', when used for pointer and reference, shall have no space between it and the following variable name.
+'*' 和 '&', 当用作指针和引用时，它和后面的变量名之间应该没有空格。
 
 # typedef
 
-enums that do not have a count or some other form of terminator element shall have a comma after their last element:
+没有计数或其他终止符元素的枚举应该在最后一个元素后加一个逗号:
 
 ```
 typedef enum {
@@ -125,10 +122,9 @@ typedef enum {
 } mspResult_e;
 ```
 
-This ensures that, if more elements are added at a later stage, only the additional lines show up in the review, making it easier to review.
+这确保了，如果在以后要添加更多的成员，那么在复查中只会显示额外的行，从而使复查更容易。
 
-enums with a count should have that count declared as the last item in the enumeration list,
-so that it is automatically maintained, e.g.:
+有计数的枚举应该将计数声明为枚举列表中的最后一项，这样它就会被自动维护，例如:
 ```
 typedef enum {
     PID_CONTROLLER_MW23 = 0,
@@ -137,9 +133,9 @@ typedef enum {
     PID_COUNT
 } pidControllerType_e;
 ```
-It shall not be calculated afterwards, e.g. using PID\_CONTROLLER\_LUX\_FLOAT + 1;
+之后就不用再计算，例如使用PID_CONTROLLER_LUX_FLOAT + 1;
 
-typedef struct definitions should include the struct name, so that the type can be forward referenced, that is in:
+typedef 结构体定义应包含结构体名称，以便可以前向引用该类型，如:
 ```
 typedef struct motorMixer_s {
     float throttle;
@@ -147,62 +143,54 @@ typedef struct motorMixer_s {
     float yaw;
 } motorMixer_t;
 ```
-the motorMixer\_s name is required.
+motorMixer_s名称是必需的。
 
-# Variables
+# 变量
 
-## Naming
+## 命名
 
 
-Generally, descriptive lowerCamelCase names are preferred for function names, variables, arguments, etc.
-For configuration variables that are user accessible via CLI or similar, all\_lowercase with underscore is preferred.
+通常情况下，具有描述性的小驼峰（lowerCamelCase）名称是函数名、变量、参数等的理想选择。对于用户可以通过CLl或类似方式访问的配置变量，最好使用带下划线的小写字母（_lowercase）。
 
-Variable names should be nouns.
+变量名应该是名词。
 
-Simple temporary variables with a very small scope may be short where it aligns with common practice.
-Such as "i" as a temporary counter in a `for` loop, like `for (int i = 0; i < 4; i++)`.
-Using "temporaryCounter" in that case would not improve readability.
+作用域很小的简单临时变量可能会很简短，但这样符合惯例。比如在`for`循环中将”i“作为临时计数器，如`for (int i = 0; i < 4; i++)`。在这种情况下使用“temporaryCounter”不会提高可读性。
 
-## Declarations
+## 声明
 
-Avoid global variables.
+避免全局变量。
 
-Variables should be declared at the top of the smallest scope where the variable is used.
-Variable re-use should be avoided - use distinct variabes when their use is unrelated.
-One blank line should follow the declaration(s).
+变量应该在使用变量的最小作用域的顶部声明。应避免变量的重复使用 —— 当他们的作用不相关时，应定义不同的变量。定义后面应有一行空行。
 
-Hint: Sometimes you can create a block, i.e. add curly braces, to reduce the scope further.
-For example to limit variable scope to a single `case` branch.
+提示：有时你可以创建一个块，即添加大括号，以进一步缩小范围。例如，将变量范围限制为单个`case`分支。
 
 Variables with limited use may be declared at the point of first use. It makes PR-review easier (but that point is lost if the variable is used everywhere anyway).
+使用有限的变量可以在第一次使用时声明。它使的代码review更容易（但是如果到处都使用这个变量，这一点就不适用了）。
 
-## Initialisation
+## 初始化
 
 The pattern with "lazy initialisation" may be advantageous in the Configurator to speed up the start when the initialisation is "expensive" in some way.
 In the FC, however, it’s always better to use some milliseconds extra before take-off than to use them while flying.
 
-So don't use "lazy initialisation".
+不要使用”lazy initialisation“。
 
-An explicit "init" function, is preferred.
+最好使用显式的“init”函数。
 
-## Data types
+## 数据类型
 
-Be aware of the data types you use and do not trust implicit type casting to be correct.
+注意使用的数据类型，不要相信隐式类型转换一定正确。
 
-Angles are sometimes represented as degrees in a float. Sometimes as decidegrees in a uint8\_t.
-You have been warned.
+角度有时会用浮点型的度来表示。有时又会用uint8_t的十进制度。你需要时刻注意。
 
-Avoid implicit double conversions and only use float-argument functions.
+避免隐式双转换，只使用浮点参数函数。
 
-Check .map file to make sure no conversions sneak in, and use -Wdouble-promotion warning for the compiler
+不要直接使用sin() 和 cos()函数，尽量使用近似的效率更高的替代函数。
 
-Instead of sin() and cos(), use sin\_approx() and cos\_approx() from common/math.h.
+浮点型的常量需要有”f“后缀，如 1.0f 和 3.1415926f，否则可能会发送重复转换。
 
-Float constants should be defined with "f" suffix, like 1.0f and 3.1415926f, otherwise double conversion might occur.
+# 函数
 
-# Functions
-
-## Naming
+## 命名
 
 Methods that return a boolean should be named as a question, and should not change any state. e.g. 'isOkToArm()'.
 
