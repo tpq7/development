@@ -1,4 +1,6 @@
-# Object-like Macros
+# 宏定义
+
+## Object-like Macros
 An object-like macro is a simple identifier which will be replaced by a code fragment. It is called object-like because it looks like a data object in code that uses it. They are most commonly used to give symbolic names to numeric constants.
 
 You create macros with the ‘#define’ directive. ‘#define’ is followed by the name of the macro and then the token sequence it should be an abbreviation for, which is variously referred to as the macro’s body, expansion or replacement list. For example,
@@ -64,7 +66,7 @@ This makes a difference if you change the definition of **BUFSIZE** at some poin
 Now TABLESIZE expands (in two stages) to 37.
 
 
-# Function-like Macros
+## Function-like Macros
 
 You can also define macros whose use looks like a function call. These are called function-like macros. To define a function-like macro, you use the same ‘#define’ directive, but you put a pair of parentheses immediately after the macro name. For example,
 ```
@@ -95,7 +97,7 @@ lang_init()
 
 The first two pairs of parentheses in this expansion come from the macro. The third is the pair that was originally after the macro invocation. Since lang_init is an object-like macro, it does not consume those parentheses.
 
-# Macro Arguments
+## Macro Arguments
 
 Function-like macros can take arguments, just like true functions. To define a macro that uses arguments, you insert parameters between the pair of parentheses in the macro definition that make the macro function-like. The parameters must be valid C identifiers, separated by commas and optionally whitespace.
 
@@ -159,7 +161,7 @@ Macro parameters appearing inside string literals are not replaced by their corr
 foo(bar)        → bar, "x"
 ```
 
-# Stringizing
+## Stringizing
 
 Sometimes you may want to convert a macro argument into a string constant. Parameters are not replaced inside string constants, but you can use the ‘#’ preprocessing operator instead. When a macro parameter is used with a leading ‘#’, the preprocessor replaces it with the literal text of the actual argument, converted to a string constant. Unlike normal parameter replacement, the argument is not macro-expanded first. This is called stringizing.
 
@@ -203,7 +205,7 @@ xstr (foo)
 
 `s` is stringized when it is used in `str`, so it is not macro-expanded first. But `s` is an ordinary argument to `xstr`, so it is completely macro-expanded before `xstr` itself is expanded (see Argument Prescan). Therefore, by the time `str` gets to its argument, it has already been macro-expanded.
 
-# Concatenation
+## Concatenation
 
 It is often useful to merge two tokens into one while expanding macros. This is called token pasting or token concatenation. The `‘##’` preprocessing operator performs token pasting. When a macro is expanded, the two tokens on either side of each `‘##’` operator are combined into a single token, which then replaces the `‘##’` and the two original tokens in the macro expansion. Usually both will be identifiers, or one will be an identifier and the other a preprocessing number. When pasted, they make a longer identifier. This isn’t the only valid case. It is also possible to concatenate two numbers (or a number and a name, such as `1.5` and `e3`) into a number. Also, multi-character operators such as `+=` can be formed by token pasting.
 
@@ -245,7 +247,7 @@ struct command commands[] =
 };
 ```
 
-# Variadic Macros
+## Variadic Macros
 
 A macro can be declared to accept a variable number of arguments much as a function can. The syntax for defining the macro is similar to that of a function. Here is an example:
 
@@ -324,7 +326,7 @@ Likewise, C++ forbids __VA_OPT__ anywhere outside the replacement list of a vari
 
 Variadic macros became a standard part of the C language with C99. GNU CPP previously supported them with a named variable argument (‘args...’, not ‘...’ and __VA_ARGS__), which is still supported for backward compatibility.
 
-# Undefining and Redefining Macros
+## Undefining and Redefining Macros
 
 If a macro ceases to be useful, it may be undefined with the `‘#undef’` directive. `‘#undef’` takes a single argument, the name of the macro to undefine. You use the bare macro name, even if the macro is function-like. It is an error if anything appears on the line after the macro name. `‘#undef’` has no effect if the name is not a macro.
 
