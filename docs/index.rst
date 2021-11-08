@@ -19,6 +19,13 @@
    C Operator Precedence
    macros
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Git
+   
+   Git/Git Intro
+   Git/Keil Project .gitignore
+
 Indices and tables
 ==================
 
