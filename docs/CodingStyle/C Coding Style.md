@@ -190,73 +190,98 @@ In the FC, however, it’s always better to use some milliseconds extra before t
 ### 命名
 
 Methods that return a boolean should be named as a question, and should not change any state. e.g. 'isOkToArm()'.
+返回为布尔型的方法需要命名为一个问句，并且不能改变任何状态。如：‘isOkToArm()’
 
 Methods should have verb or verb-phrase names, like deletePage or save. Tell the system to 'do' something 'with' something. e.g. deleteAllPages(pageList).
+方法需要包含动词或者动宾结构的名字，像deletePage 或者 save。告诉系统‘用(with)’什么去‘做(do)’什么。如：deleteAllPages(pageList)。
 
 Non-static functions should be prefixed by their class. Eg baroUpdate and not updateCompass .
+非静态函数需要在前面加上它们的类名。如：bareUpdate，而非updateBaro。
 
 Groups of functions acting on an 'object' should share the same prefix, e.g.
+一组作用于同一个‘对象’的函数应该共享相同的函数前缀，如：
 ```
 float biQuadFilterApply(...);
 void biQuadFilterInit(...);
 boolean biQuadIsReady();
 ```
 rather than
+而不是
 ```
 float applyBiQuadFilter(...);
 void newBiQuadLpf(...);
 boolean isBiQuadReady();
 ```
 
-### Parameter order
+### Parameter order 参数顺序
 
 Data should move from right to left, as in memcpy(void *dst, const void *src, size\_t size).
 This also mimics the assignment operator (e.g. dst = src;)
+数据需要从右向左传递，如在memcpy(void *dst, const void *src, size\_t size)。
+这个类似赋值操作符（如：dst = src;）
 
 When a group of functions act on an 'object' then that object should be the first parameter for all the functions, e.g.:
+当一组函数作用于同一个‘对象’时哪个对象应该作为所有函数第一个参数，如：
 ```
 float biQuadFilterApply(biquad_t *state, float sample);
 void biQuadNewLpf(biquad_t *state, float filterCutFreq, uint32_t refreshRate);
 ```
 rather than
+而不是
 ```
 float biQuadFilterApply(float sample, biquad_t *state);
 void biQuadNewLpf(float filterCutFreq, biquad_t *state, uint32_t refreshRate);
 ```
 
-### Declarations
+### Declarations 声明
 
 Functions not used outside their containing .c file should be declared static (or STATIC\_UNIT\_TESTED so they can be used in unit tests).
+函数没有在包含它的.c文件以外使用的情况下需定义为静态（static）函数（或者 STATIC\_UNIT\_TESTED 这样它们能够在单元测试中使用）。
 
 Non-static functions should have their declaration in a single .h file.
+非静态函数需要在一个唯一的.h文件中有它们的声明。
 
 Don't make more than necessary visible for other modules, not even types. Pre-processor macros may be used to declare module internal things that must be shared with the modules test code but otherwise hidden.
+不要让非必要函数对其他模块可见，甚至是类型。预处理宏可能用于定义模块必须与模块测试代码共享的内部的一些东西，请他情况都隐藏。
 
 In the .h file:
+在.h文件中：
 ```
 #ifdef MODULENAME_INTERNALS_
 … declarations …
 #endif
 ```
 In the module .c file, and in the test file but nowhere else, put `#define MODULENAME_INTERNALS_` just before including the .h file.
+在模块的.c文件，并且仅仅在测试文件中，放置 `#define MODULENAME_INTERNALS_`在包含的.h文件前。
 
 Note: You can get the same effect by putting the internals in a separate .h file.
+你可以通过放置在其他单独的.h文件中达到同样的效果。
 
-### Implementation
+### Implementation 函数实现
 
 Keep functions short and distinctive.
 Think about unit test when you define your functions. Ideally you should implement the test cases before implementing the function.
+保持函数简单并且易分辨。
+定义函数时首先应该考虑单元测试。理想的情况下你应该先实现测试用例再实现函数。
 
 Never put multiple statements on a single line.
 Never put multiple assignments on a single line.
 Never put multiple assignments in a single statement.
+不用在同一行放置多个定义。
+不用在同一行放置多个赋值语句。
+？？
 
 Defining constants using pre-processor macros is not preferred.
 Const-correctness should be enforced.
 This allows some errors to be picked up at compile time (for example getting the order of the parameters wrong in a call to memcpy).
+不建议使用预处理宏定义常量。
+？？？
+
 
 A function should only read data from the HW once in each call, and preferably all at one place.
 For example, if gyro angle or time is needed multiple times, read once and store in a local variable.
+在每次调用时函数智能从硬件读取一次数据，并且最好所有的都在一个地方。
+比如：如果需要陀螺仪角度或者时间很多次，读取一次并且存储在一个局部变量中。
 
 Use `for` loops (rather than `do` or `while` loops) for iteration.
 
