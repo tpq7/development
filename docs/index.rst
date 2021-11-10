@@ -18,6 +18,8 @@
 
    C Operator Precedence
    macros
+   macros-zh
+   docxygen_format
 
 .. toctree::
    :maxdepth: 2
