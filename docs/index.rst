@@ -28,6 +28,12 @@
    Git/Git Intro
    Git/Keil Project .gitignore
 
+.. toctree::
+   :maxdepth: 2
+   :caption: 硬件
+
+   Hardware/IC Selector
+
 Indices and tables
 ==================
 
