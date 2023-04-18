@@ -27,6 +27,7 @@
    
    Git/Git Intro
    Git/Keil Project .gitignore
+   gitflow
 
 .. toctree::
    :maxdepth: 2
