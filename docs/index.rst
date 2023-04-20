@@ -28,6 +28,13 @@
    Git/Git Intro
    Git/Keil Project .gitignore
    Git/gitflow
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: 测试
+   
+   Test/J-LINK(SWD)项目下载教程
+   Test/上位机测试
 
 .. toctree::
    :maxdepth: 2
