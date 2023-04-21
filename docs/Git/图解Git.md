@@ -1,6 +1,9 @@
 # 图解Git
+
 ## 基本用法
+
 ![image](images/git_diagram_01.png)
+
 上面的四条命令在工作目录、暂存目录(也叫做索引)和仓库之间复制文件。
 
 git add files 把当前文件放入暂存区域。
