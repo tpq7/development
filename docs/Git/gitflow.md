@@ -1,7 +1,5 @@
 # GitFlow 工作流
 
-![Gitflow Workflow](https://www.atlassian.com/git/images/tutorials/collaborating/comparing-workflows/gitflow-workflow/01.svg)
-
 下面的 [GitFlow 工作流](http://nvie.com/posts/a-successful-git-branching-model/)一节源于 [nvie](http://nvie.com/) 网站上的作者 Vincent Driessen。
 
 GitFlow 工作流围绕项目发布定义了一个严格的分支模型。有些地方比[功能分支工作流](https://github.com/geeeeeeeeek/git-recipes/wiki/3.5-%E5%B8%B8%E8%A7%81%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%AF%94%E8%BE%83#feature%E5%88%86%E6%94%AF%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81)更复杂，为管理大型项目提供了鲁棒的框架。
