@@ -29,6 +29,13 @@
    Git/Keil Project .gitignore
    Git/gitflow
    Git/图解Git
+   Git/Github上传Release步骤
+
+.. toctree::
+   :maxdepth: 2
+   :caption: VSCode
+
+   VSCode/VSCode用Doxygen自定义代码注释配置
 
 .. toctree::
    :maxdepth: 2
