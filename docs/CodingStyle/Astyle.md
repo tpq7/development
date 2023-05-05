@@ -2,7 +2,7 @@
 
 ## 安装Astyle到电脑
 
-1. Astyle下载链接：[http://astyle.sourceforge.net/](http://astyle.sourceforge.net/)
+1. Astyle下载链接：[https://astyle.sourceforge.net/](https://astyle.sourceforge.net/)
 2. 将Astyle添加到系统环境变量
 
 ![](images/sys-path.png)
