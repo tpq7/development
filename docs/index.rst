@@ -11,6 +11,7 @@
    :caption: Coding Style
 
    CodingStyle/C Coding Style
+   CodingStyle/Astyle
 
 .. toctree::
    :maxdepth: 2
