@@ -43,8 +43,9 @@
    :caption: Keil
    
    Keil/Keil激活mdk教程
+   keil/Keil项目编译Options for Target配置
    Test/J-LINK(SWD)项目下载教程
-   Test/PRGMR烧录器生成烧录文件（客户或生产用）
+   Test/PRGMR烧录器生成烧录文件(客户或生产用)
    OTA/OTA固件升级
    
 .. toctree::
