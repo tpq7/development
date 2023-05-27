@@ -43,7 +43,7 @@
    :caption: Keil
    
    Keil/Keil激活mdk教程
-   keil/Keil项目编译Options for Target配置
+   Keil/Keil项目编译Options for Target配置
    Keil/Keil新建公司工程教程
    Test/J-LINK(SWD)项目下载教程
    Test/J-Flash使用教程

@@ -1,10 +1,10 @@
-# keil新建公司工程教程
+# Keil新建公司工程教程
 
-### 说明
+## 一、 说明
 公司软件新项目软件新建是在先前相近的项目,修改得到的，所以在软件上可以使用先前版本的软件工程复制进行修改，下面我会举例介绍公司软件新建工程的流程。
 
 
-### 复制相近的工程文件，进行修改
+## 二、 复制相近的工程文件，进行修改
 1、确定项目相近的先前工程，复制粘贴，并按照公司的外接擦窗机PCBA编码规范修改复制得来的项目名称如下图。
 
 ![image](image/keil_bulid_project_01.png)
@@ -14,7 +14,7 @@
 ![image](image/keil_bulid_project_02.png)
 
 
-### 修改工程的项目配置
+## 三、 修改工程的项目配置
 1、打开项目的工程文件，点击魔术棒弹出项目配置选项卡。
 
 ![image](image/keil_bulid_project_03.png)
@@ -35,7 +35,7 @@ fromelf --bin --output .\output\@P.bin .\output\@P.axf
 
 ![image](image/keil_bulid_project_05.png)
 
-### 修改工程中的 target.h 文件
+## 四、 修改工程中的 target.h 文件
 
 1、检查target.h 文件里面的引脚定义与原理图是否对应，如果有不对应的地方按照项目原理图修改！！！
 
@@ -47,4 +47,4 @@ fromelf --bin --output .\output\@P.bin .\output\@P.axf
 
 ![image](image/keil_bulid_project_07.png)
 
-### 至此工程新建就已经完成。
+至此工程新建就已经完成。
