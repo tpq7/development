@@ -37,6 +37,7 @@
    :caption: VSCode
 
    VSCode/VSCode用Doxygen自定义代码注释配置
+   VSCode/常用插件
 
 .. toctree::
    :maxdepth: 2
