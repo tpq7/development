@@ -51,6 +51,11 @@
    Test/PRGMR烧录器生成烧录文件(客户或生产用)
    OTA/OTA固件升级
 
+.. toctree::
+   :maxdepth: 2
+   :caption: UID
+
+   UID/UID加密配置
    
 .. toctree::
    :maxdepth: 2
