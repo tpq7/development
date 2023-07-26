@@ -55,7 +55,7 @@
    :maxdepth: 2
    :caption: UID
 
-   UID/UID加密配置
+   UID/UID加密-功能配置
    
 .. toctree::
    :maxdepth: 2
