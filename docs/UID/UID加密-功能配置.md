@@ -1,4 +1,4 @@
-# UID加密配置
+# UID加密-功能配置
 
 编译项目前，打开Options for Target。
 
