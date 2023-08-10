@@ -113,6 +113,12 @@
 ![image](images/ota_tuya_plat_18.png) 
 
 
+APP上获取设备id如下图所示：
+
+![image](images/app_getdevid.gif) 
+
+
+
 
 
 
