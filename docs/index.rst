@@ -69,6 +69,7 @@
    
    Test/上位机测试
    Test/串口调试工具的使用
+   Test/MSP Protocol
 
 .. toctree::
    :maxdepth: 2
