@@ -68,6 +68,7 @@
    :caption: 测试
    
    Test/上位机测试
+   Test/串口调试工具的使用
 
 .. toctree::
    :maxdepth: 2
