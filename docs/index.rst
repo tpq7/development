@@ -48,6 +48,7 @@
    Test/J-LINK(SWD)项目下载教程
    Test/J-Flash使用教程
    Test/PRGMR烧录器生成烧录文件(客户或生产用)
+   Test/XW16Pro白色烧录器生成烧录文件(客户或生产用)
    OTA/OTA固件升级
 
    
