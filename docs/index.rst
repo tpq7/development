@@ -37,6 +37,7 @@
    :caption: VSCode
 
    VSCode/VSCode用Doxygen自定义代码注释配置
+   VSCode/常用插件
 
 .. toctree::
    :maxdepth: 2
@@ -51,12 +52,25 @@
    Test/XW16Pro白色烧录器生成烧录文件(客户或生产用)
    OTA/OTA固件升级
 
+.. toctree::
+   :maxdepth: 2
+   :caption: UID
+
+   UID/UID加密-功能配置
+
+.. toctree::
+   :maxdepth: 2
+   :caption: TSD
+
+   TSD/TSD
    
 .. toctree::
    :maxdepth: 2
    :caption: 测试
    
    Test/上位机测试
+   Test/串口调试工具的使用
+   Test/MSP Protocol
 
 .. toctree::
    :maxdepth: 2
