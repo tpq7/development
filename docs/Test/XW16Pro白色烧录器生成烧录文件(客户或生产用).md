@@ -21,7 +21,7 @@
 
 5、填写镜像次数限定，不能留空，留空代表不限次数！！！
 
-![image](image/XW16Pro_03.png)
+![image](image/XW16Pro_09.png)
 
 6、设置配置字，禁止读出
 
