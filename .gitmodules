@@ -1,0 +1,3 @@
+[submodule "docs/msp-protocol"]
+	path = docs/msp-protocol
+	url = https://github.com/Timyerc/msp-protocol
