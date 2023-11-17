@@ -30,7 +30,7 @@
    Git/Keil Project .gitignore
    Git/gitflow
    Git/图解Git
-   Git/Github上传Release步骤
+   Git/Github上传Release
 
 .. toctree::
    :maxdepth: 2
