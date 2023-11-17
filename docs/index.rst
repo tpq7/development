@@ -8,6 +8,12 @@
 
 .. toctree::
    :maxdepth: 2
+   :caption: FAQ
+
+   FAQ/常见问题
+
+.. toctree::
+   :maxdepth: 2
    :caption: Coding Style
 
    CodingStyle/C Coding Style
