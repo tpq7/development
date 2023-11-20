@@ -6,11 +6,6 @@
 欢迎来到天迈开发文档
 ====================
 
-.. toctree::
-   :maxdepth: 2
-   :caption: FAQ
-
-   FAQ/常见问题
 
 .. toctree::
    :maxdepth: 2
@@ -83,6 +78,12 @@
    :caption: 硬件
 
    Hardware/IC Selector
+
+.. toctree::
+   :maxdepth: 2
+   :caption: FAQ
+
+   FAQ/常见问题
 
 Indices and tables
 ==================
