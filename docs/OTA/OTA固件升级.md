@@ -1,6 +1,24 @@
 # OTA升级固件处理
 
-## 一、OTA固件生成
+## 一、OTA脚本环境搭建
+1、进入python官网，下载最新python，安装
+
+![image](images/ota-python-download.png)
+
+2、打开终端，运行指令
+```
+pip install cryptography
+```
+3、若出现安装不成功，运行指令
+```
+pip install --upgrade setuptools
+```
+4、继续运行指令
+```
+pip install pycryptodome
+```
+
+## 二、OTA固件生成
 
  **注意：如果主板芯片是HK32的，主板程序需要用烧录器烧录进去再测试。**
 
@@ -34,7 +52,7 @@
 
 ![image](images/ota_upgrade_07.png)
 
-## 二、涂鸦平台上传OTA固件步骤
+## 三、涂鸦平台上传OTA固件步骤
 
 1、查找产品
 
