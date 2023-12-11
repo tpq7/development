@@ -78,6 +78,7 @@
    :caption: 硬件
 
    Hardware/IC Selector
+   Hardware/Kicad在3D Viewer中隐藏部分元器件
 
 .. toctree::
    :maxdepth: 2
