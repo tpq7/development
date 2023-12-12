@@ -85,6 +85,7 @@
    :caption: FAQ
 
    FAQ/常见问题
+   FAQ/方形机常见问题
 
 Indices and tables
 ==================
