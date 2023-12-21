@@ -4,23 +4,11 @@
 
 ### 安装相关软件
 
-安装最新的Kicad软件 [Kicad](https://www.kicad.org/)
-
-安装 [Python](https://www.python.org/)
-
-Python安装好后安装必要的库
-
-打开Windows终端，依次输入如下命令
-
-```
-python -m pip install xlsxwriter
-```
-
-### 设置系统环境变量
+#### 安装[Kicad](https://www.kicad.org/)
 
 添加Kicad安装目录下的bin文件夹路径到系统环境变量
 
-*如下目录仅供参考，添加自己的实际目录*
+*如下目录仅供参考，安装实际目录添加*
 
 ```
 C:\Program Files\KiCad\7.0\bin\
@@ -29,14 +17,32 @@ C:\Program Files\KiCad\7.0\bin\
 ![image](image/kicad-script-gen-fabs-1.png)
 ![image](image/kicad-script-gen-fabs-2.png)
 
+***环境变量设置好后需要重启电脑才会生效，切记重启后再执行下面步骤。***
+
+#### 安装[Python](https://www.python.org/)依赖库
+
+打开Windows终端，输入如下命令并回车
+
+```
+python -m pip install xlsxwriter
+```
+
+![image](image/kicad-script-gen-fabs-6.png)
+
 ## 执行脚本生成生产文件
 
 打开Windows终端，进入工程仓库目录下的utils子目录
 
-执行如下脚本
+建议通过Github Desktop进入终端，这样终端会默认进入仓库目录。
+
+![image](image/kicad-script-gen-fabs-7.png)
+
+执行如下脚本：
 
 ```
 chcp 65001
+
+cd utils
 
 gen-fabs.bat 总的项目名称
 gen-fabs.bat 总的项目名称\具体的电路板
