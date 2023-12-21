@@ -79,6 +79,7 @@
 
    Hardware/IC Selector
    Hardware/Kicad在3D Viewer中隐藏部分元器件
+   Hardware/Kicad使用脚本生成生产文件
 
 .. toctree::
    :maxdepth: 2
