@@ -10,9 +10,12 @@
 
 ![image](image/keil_build_config_01.png)
 
-项目有bootloader则需要做如下图设置：
+1. 项目有bootloader则需要做如下图设置：
 
 ![image](image/keil_build_config_02.png)
+
+2. 配置keil环境变量，如下图设置
+   ![image](image/config_keil_path.png)
 
 ## 二、设置生成文件名
 
