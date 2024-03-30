@@ -37,6 +37,7 @@
    :maxdepth: 2
    :caption: VSCode
 
+   VSCode/VSCode用EIDE编译项目
    VSCode/VSCode用CPPCheck静态代码审查工具
    VSCode/VSCode用Doxygen自定义代码注释配置
    VSCode/常用插件
