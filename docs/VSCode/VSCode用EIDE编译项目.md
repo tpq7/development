@@ -12,27 +12,44 @@ GNU Arm Embedded Toolchain
 
 EIDE安装
 
-![image](images/EIDE-install_01.png)
+![image](images/eide-project_01.png)
+
+安装完成后VScode左侧工具栏会出现EIDE的标识（下图1处），现在我们可以在下图中2处新建、打开或者导入其他keil平台的项目（后面会提到打开以及导入功能）
+
+![image](images/eide-project_02.png)
 
 Cortex-Debug安装
 
-![image](images/Cortex-Debug-install_01.png)
+![image](images/eide-project_03.png)
 
 ## 二、VSCode中EIDE和Cortex-Debug中的一些设置
 
 ### 打开settings.json,将以下配置写入（注意根据自己安装路径修改）
+
+同时按Ctrl+Shift+P，在弹框中输入settings，点击打开下图中的文件
+
+![image](images/eide-project_04.png)
 
         "EIDE.ARM.Option.AxfToElf": true,
         "EIDE.JLink.InstallDirectory": "C:/Program Files/SEGGER/JLink_V796b",
         "cortex-debug.armToolchainPath": "C:\\Program Files (x86)\\GNU Arm Embedded Toolchain\\10 2021.10\\bin",
         "cortex-debug.JLinkGDBServerPath": "C:/Program Files/SEGGER/JLink_V796b/JLinkGDBServerCL.exe",
 
-
 ## 三、打开已有的EIDE项目
 
-根据自己的项目路径打开EIDE项目工作空间
+如果已经存在EIDE项目，根据自己的项目路径打开EIDE项目工作空间，如下图所示：
 
-![image](images/EIDE-import-project_01.png)
+![image](images/eide-project_05.png)
+
+项目的一些属性介绍，如下图所示：
+
+![image](images/eide-project_06.png)
+
+## 四、导入一个已有的Keil工程成为EIDE工程文件
+
+
+
+
 
 
 
