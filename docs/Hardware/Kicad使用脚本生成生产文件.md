@@ -1,4 +1,4 @@
-# Kicad使用脚本生成生产文件
+# Kicad使用脚本生成生产文件 @Justin
 
 ## 准备
 
@@ -6,12 +6,12 @@
 
 #### 安装[Kicad](https://www.kicad.org/)
 
-添加Kicad安装目录下的bin文件夹路径到系统环境变量
+添加Kicad安装目录下的bin文件夹路径到系统环境变量，如果安装了新的Kicad版本，需把环境变量改为新版本的安装目录。
 
 *如下目录仅供参考，安装实际目录添加*
 
 ```
-C:\Program Files\KiCad\7.0\bin\
+C:\Program Files\KiCad\版本\bin\
 ```
 
 ![image](image/kicad-script-gen-fabs-1.png)
