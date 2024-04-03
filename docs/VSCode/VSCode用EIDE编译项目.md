@@ -47,6 +47,38 @@ Cortex-Debug安装
 
 ## 四、导入一个已有的Keil工程成为EIDE工程文件
 
+### 根据下图中的步骤导入Keil工程：
+
+1、选择原工程文件类型：
+
+![image](images/eide-project_07.png)
+
+2、然后选择后缀为.uvprojx的文件
+
+![image](images/eide-project_08.png)
+
+### 接下来在右下角弹出的提示框中选择NO，如下图所示：
+
+![image](images/eide-project_09.png)
+
+### 然后在项目中与Keil_XXX文件夹平行的目录下新建一个EIDE的目录，用于存放EIDE工程，如下图所示：
+
+![image](images/eide-project_10.png)
+
+选中EIDE文件夹，VSCode右下角会弹出提示框，选择continue即可：
+
+![image](images/eide-project_11.png)
+
+## 五、功能使用介绍
+
+
+
+
+
+
+
+
+
 
 
 
