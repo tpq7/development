@@ -69,7 +69,21 @@ Cortex-Debug安装
 
 ![image](images/eide-project_11.png)
 
-## 五、功能使用介绍
+## 五、其他一些功能使用介绍
+
+### Target切换、新增以及删除
+
+先按下图中步骤调出Target操作界面，可直接选择已有Target：
+
+![image](images/eide-project_12.png)
+
+新增一个新的Target点击下图中绿色加号，如下图右上角所示：
+
+![image](images/eide-project_13.png)
+
+然后输入新的Target名称，点击回车键即可（删除功能方法与新增一样，只需要用删除按钮即可）：
+
+![image](images/eide-project_14.png)
 
 
 
