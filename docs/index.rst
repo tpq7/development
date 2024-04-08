@@ -42,6 +42,7 @@
    VSCode/VSCode用Doxygen自定义代码注释配置
    VSCode/常用插件
    VSCode/FAQ
+   VSCode/VSCode常用快捷键
 
 .. toctree::
    :maxdepth: 2
