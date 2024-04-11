@@ -25,6 +25,13 @@
 
 .. toctree::
    :maxdepth: 2
+   :caption: 程序功能模块
+
+   UID/UID加密-功能配置
+   TSD/TSD
+
+.. toctree::
+   :maxdepth: 2
    :caption: Git
    
    Git/Git Intro
@@ -32,6 +39,7 @@
    Git/gitflow
    Git/图解Git
    Git/Github上传Release
+   Git/Git常用命令
 
 .. toctree::
    :maxdepth: 2
@@ -57,18 +65,6 @@
    Test/XW16Pro白色烧录器生成烧录文件(服务端)
    Test/XW16Pro白色烧录器提取程序(客户端)
    OTA/OTA固件升级
-
-.. toctree::
-   :maxdepth: 2
-   :caption: UID
-
-   UID/UID加密-功能配置
-
-.. toctree::
-   :maxdepth: 2
-   :caption: TSD
-
-   TSD/TSD
    
 .. toctree::
    :maxdepth: 2
