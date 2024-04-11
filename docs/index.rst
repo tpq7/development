@@ -18,10 +18,9 @@
    :maxdepth: 2
    :caption: C语言
 
-   C Operator Precedence
-   macros
-   macros-zh
-   docxygen_format
+   CLang/C Operator Precedence
+   Clang/macros
+   Clang/docxygen_format
 
 .. toctree::
    :maxdepth: 2
