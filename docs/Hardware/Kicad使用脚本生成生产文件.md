@@ -1,4 +1,6 @@
-# Kicad使用脚本生成生产文件 @Justin
+# Kicad使用脚本生成生产文件
+
+作者@Justin
 
 ## 安装相关软件
 
