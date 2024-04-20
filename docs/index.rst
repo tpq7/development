@@ -82,6 +82,7 @@
    Hardware/Kicad使用脚本生成生产文件
    Hardware/硬件开发流程
    Hardware/Kicad设计规范
+   Hardware/原理图元器件参数命名规则
    Hardware/IC Selector
 
 .. toctree::
