@@ -39,6 +39,7 @@
    Git/图解Git
    Git/Github上传Release
    Git/Git常用命令
+   Git/切换到添加新submodule分支问题
 
 .. toctree::
    :maxdepth: 2

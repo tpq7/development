@@ -33,6 +33,10 @@ git push --force
 
 `git submodule add repo-url`
 
+添加submodule到指定目录
+
+`git submodule add repo-url dir`
+
 如果你已经克隆了仓库，但忘了加`--recurse-submodules`, 你可以通过执行下方命令来完成submodule初始化和更新
 
 `git submodule update --init`
