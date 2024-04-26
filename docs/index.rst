@@ -80,7 +80,7 @@
    :maxdepth: 2
    :caption: 硬件
 
-   Hardware/Kicad在3D Viewer中隐藏部分元器件
+   Hardware/Kicad 8.0在3D图中隐藏部分元器件
    Hardware/Kicad使用脚本生成生产文件
    Hardware/硬件开发流程
    Hardware/Kicad设计规范
