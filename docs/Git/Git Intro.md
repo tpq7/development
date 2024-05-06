@@ -36,6 +36,12 @@
 
 `git push -u origin 分支名`
 
+## 参考教程
+
+下方文档详细介绍了Git基本概念以及常用命令的使用方法。
+
+[https://medium.com/@jake.page91/the-guide-to-git-i-never-had-a89048d4703a](https://medium.com/@jake.page91/the-guide-to-git-i-never-had-a89048d4703a)
+
 ## .gitignore
 
 根据你的工程类型参考对应的模板为你的工程添加.gitignore文件。
