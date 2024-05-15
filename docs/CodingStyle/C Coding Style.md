@@ -1,6 +1,6 @@
 # C Coding Style
 
-本文档翻译改编自cleanflight代码风格：[https://github.com/betaflight/betaflight/blob/master/docs/development/CodingStyle.md](https://github.com/betaflight/betaflight/blob/master/docs/development/CodingStyle.md)
+本文档翻译改编自Betaflight代码风格：[链接](https://betaflight.com/docs/development/CodingStyle)
 
 ## Formatting style
 
@@ -8,23 +8,9 @@
 
 [1TBS](https://en.wikipedia.org/wiki/Indentation_style#Variant:_1TBS_(OTBS)) (based K&R) 4个空格缩进，没有硬件制表符(所有制表符都用空格代替)。
 
-### Tool support
+### 工具支持
 
-Any of these tools can get you pretty close:
-
-Eclipse built in "K&R" style, after changing the indent to 4 spaces and change Braces after function declarations to Next line.
-```
-astyle --style=kr --indent=spaces=4 --min-conditional-indent=0 --max-instatement-indent=80 --pad-header --pad-oper --align-pointer=name --align-reference=name --max-code-length=120 --convert-tabs --preserve-date --suffix=none --mode=c
-```
-```
-indent -kr -i4 -nut
-```
-(the options for these commands can be tuned more to comply even better)
-
-Note: These tools are not authorative.
-Sometimes, for example, you may want other columns and line breaks so it looks like a matrix.
-
-Note2: The Astyle settings have been tested and will produce a nice result. Many files will be changed, mostly to the better but maybe not always, so use with care. 
+参考[使用VSCode格式化代码](Astyle)
 
 ### 大括号
 
@@ -71,7 +57,6 @@ if (x is true) {
 }
 ```
 
-Omission of "unnecessary" braces in cases where an `if` or `else` block consists only of a single statement is not permissible in any case. These "single statement blocks" are future bugs waiting to happen when more statements are added without enclosing the block in braces.
 在`if`或`else`块只包含一条语句的情况下，不允许省略“不必要的”大括号。这些“单条语句块”可能是未来的一个bug，比如当更多的语句被添加时，你可能会忘了用大括号把语句括起来。
 
 ### 空格
@@ -146,8 +131,7 @@ motorMixer_s名称是必需的。
 
 ### 命名
 
-
-通常情况下，具有描述性的小驼峰（lowerCamelCase）名称是函数名、变量、参数等的理想选择。对于用户可以通过CLl或类似方式访问的配置变量，最好使用带下划线的小写字母（_lowercase）。
+通常情况下，具有描述性的小驼峰（lowerCamelCase）名称是函数名、变量、参数等的理想选择。
 
 变量名应该是名词。
 
@@ -157,55 +141,46 @@ motorMixer_s名称是必需的。
 
 避免全局变量。
 
-变量应该在使用变量的最小作用域的顶部声明。应避免变量的重复使用 —— 当他们的作用不相关时，应定义不同的变量。定义后面应有一行空行。
+变量应该在使用变量的最小作用域的顶部声明。
+
+应避免变量的重复使用，当它们的作用不相关时，应定义不同的变量。定义后面应有一行空行。
 
 提示：有时你可以创建一个块，即添加大括号，以进一步缩小范围。例如，将变量范围限制为单个`case`分支。
 
-Variables with limited use may be declared at the point of first use. It makes PR-review easier (but that point is lost if the variable is used everywhere anyway).
-使用有限的变量可以在第一次使用时声明。它使的代码review更容易（但是如果到处都使用这个变量，这一点就不适用了）。
+使用有限次数的变量可以在第一次使用的地方声明。它使得代码review更容易（但是如果到处都使用这个变量，这一点就不适用了）。
 
 ### 初始化
 
-The pattern with "lazy initialisation" may be advantageous in the Configurator to speed up the start when the initialisation is "expensive" in some way.
-In the FC, however, it’s always better to use some milliseconds extra before take-off than to use them while flying.
+不要使用`lazy initialisation`。
 
-不要使用”lazy initialisation“。
-
-最好使用显式的“init”函数。
+最好使用显式的`init`函数。
 
 ### 数据类型
 
-注意使用的数据类型，不要相信隐式类型转换一定正确。
+注意使用的数据类型，不要相信隐式类型转换总是正确的。
 
-角度有时会用浮点型的度来表示。有时又会用uint8_t的十进制度。你需要时刻注意。
-
-避免隐式双转换，只使用浮点参数函数。
+避免隐式双精度转换，只使用单浮点参数的函数。
 
 不要直接使用sin() 和 cos()函数，尽量使用近似的效率更高的替代函数。
 
-浮点型的常量需要有”f“后缀，如 1.0f 和 3.1415926f，否则可能会发送重复转换。
+浮点型的常量需要有`f`后缀，如 1.0f 和 3.1415926f，否则可能会发生双精度转换。
 
 ## 函数
 
 ### 命名
 
-Methods that return a boolean should be named as a question, and should not change any state. e.g. 'isOkToArm()'.
-返回为布尔型的方法需要命名为一个问句，并且不能改变任何状态。如：‘isOkToArm()’
+返回值为布尔型的方法需要命名为一个问句，并且不能改变任何状态。如：`isOkToArm()`
 
-Methods should have verb or verb-phrase names, like deletePage or save. Tell the system to 'do' something 'with' something. e.g. deleteAllPages(pageList).
 方法需要包含动词或者动宾结构的名字，像deletePage 或者 save。告诉系统‘用(with)’什么去‘做(do)’什么。如：deleteAllPages(pageList)。
 
-Non-static functions should be prefixed by their class. Eg baroUpdate and not updateCompass .
 非静态函数需要在前面加上它们的类名。如：bareUpdate，而非updateBaro。
 
-Groups of functions acting on an 'object' should share the same prefix, e.g.
 一组作用于同一个‘对象’的函数应该共享相同的函数前缀，如：
 ```
 float biQuadFilterApply(...);
 void biQuadFilterInit(...);
 boolean biQuadIsReady();
 ```
-rather than
 而不是
 ```
 float applyBiQuadFilter(...);
@@ -213,101 +188,75 @@ void newBiQuadLpf(...);
 boolean isBiQuadReady();
 ```
 
-### Parameter order 参数顺序
+### 参数顺序
 
-Data should move from right to left, as in memcpy(void *dst, const void *src, size\_t size).
-This also mimics the assignment operator (e.g. dst = src;)
-数据需要从右向左传递，如在memcpy(void *dst, const void *src, size\_t size)。
+参数需要从右向左传递，如在`memcpy(void *dst, const void *src, size\_t size)`。
 这个类似赋值操作符（如：dst = src;）
 
-When a group of functions act on an 'object' then that object should be the first parameter for all the functions, e.g.:
-当一组函数作用于同一个‘对象’时哪个对象应该作为所有函数第一个参数，如：
+当一组函数作用于同一个‘对象’时那个对象应该作为所有函数第一个参数，如：
 ```
 float biQuadFilterApply(biquad_t *state, float sample);
 void biQuadNewLpf(biquad_t *state, float filterCutFreq, uint32_t refreshRate);
 ```
-rather than
 而不是
 ```
 float biQuadFilterApply(float sample, biquad_t *state);
 void biQuadNewLpf(float filterCutFreq, biquad_t *state, uint32_t refreshRate);
 ```
 
-### Declarations 声明
+### 声明
 
-Functions not used outside their containing .c file should be declared static (or STATIC\_UNIT\_TESTED so they can be used in unit tests).
 函数没有在包含它的.c文件以外使用的情况下需定义为静态（static）函数（或者 STATIC\_UNIT\_TESTED 这样它们能够在单元测试中使用）。
 
-Non-static functions should have their declaration in a single .h file.
 非静态函数需要在一个唯一的.h文件中有它们的声明。
 
-Don't make more than necessary visible for other modules, not even types. Pre-processor macros may be used to declare module internal things that must be shared with the modules test code but otherwise hidden.
-不要让非必要函数对其他模块可见，甚至是类型。预处理宏可能用于定义模块必须与模块测试代码共享的内部的一些东西，请他情况都隐藏。
+不要让模块内部的函数对其他模块可见，甚至是类型。预处理宏可以用于定义模块必须与模块对应测试代码共享的一些内部函数等，其他情况都隐藏。
 
-In the .h file:
-在.h文件中：
+在.h文件中增加如下宏定义：
 ```
 #ifdef MODULENAME_INTERNALS_
 … declarations …
 #endif
 ```
-In the module .c file, and in the test file but nowhere else, put `#define MODULENAME_INTERNALS_` just before including the .h file.
-在模块的.c文件，并且仅仅在测试文件中，放置 `#define MODULENAME_INTERNALS_`在包含的.h文件前。
+在模块的.c文件，和相应测试文件中，在包含.h文件前添加 `#define MODULENAME_INTERNALS_`。
 
-Note: You can get the same effect by putting the internals in a separate .h file.
-你可以通过放置在其他单独的.h文件中达到同样的效果。
+你也可以通过放置在单独的一个.h文件中达到同样的效果。
 
-### Implementation 函数实现
+### 函数实现
 
-Keep functions short and distinctive.
-Think about unit test when you define your functions. Ideally you should implement the test cases before implementing the function.
 保持函数简单并且易分辨。
+
 定义函数时首先应该考虑单元测试。理想的情况下你应该先实现测试用例再实现函数。
 
-Never put multiple statements on a single line.
-Never put multiple assignments on a single line.
-Never put multiple assignments in a single statement.
-不用在同一行放置多个定义。
-不用在同一行放置多个赋值语句。
-？？
+- 不要在同一行放置多个语句。
+- 不要在同一行放置多个赋值。
+- 不要在一个语句中放置多个赋值。
 
-Defining constants using pre-processor macros is not preferred.
-Const-correctness should be enforced.
-This allows some errors to be picked up at compile time (for example getting the order of the parameters wrong in a call to memcpy).
-不建议使用预处理宏定义常量。
-？？？
+在每次调用时，函数只能从硬件读取一次数据，并且最好只在一处调用。
 
+比如：如果很多地方需要陀螺仪角度或者时间，读取一次并且存储在一个局部变量中。
 
-A function should only read data from the HW once in each call, and preferably all at one place.
-For example, if gyro angle or time is needed multiple times, read once and store in a local variable.
-在每次调用时函数智能从硬件读取一次数据，并且最好所有的都在一个地方。
-比如：如果需要陀螺仪角度或者时间很多次，读取一次并且存储在一个局部变量中。
+循环语句尽量使用`for`循环（而不是`do`或`while`）。
 
-Use `for` loops (rather than `do` or `while` loops) for iteration.
+禁止使用`continue`和`goto`语言。
+函数中有多个`return`和`case`里有多个`break`也是禁止的。
+通常这些会降低代码的可读性和可维护性。
 
-The use of `continue` or `goto` should be avoided.
-Same for multiple `return` from a function and multiple `break` inside a `case`.
-In general, they reduce readability and maintainability.
-In rare cases such constructs can be justified but only when you have considered and understood the alternatives and still have a strong reason.
+在表达式中，括号只能在需要的地方使用，即运算符优先级不能按正确的顺序计算的地方，或者在没有括号的情况下触发编译器警告的地方。这使所有表达式都成为规范形式，并避免了不同开发人员对“易于阅读”的表达式有不同想法的问题。
 
-In expressions, parentheses should only be used where they are required, i.e. where operator precedence will not evaluate in the right order, or where a compiler warning is triggered without parentheses. This brings all expressions into a canonical form, and avoids the problem of different developers having different ideas of what 'easy to read' expressions are.
-
-One exception to this rule is the ternary conditional operator
+此规则的一个例外是三元条件运算符
 
 ```
 pidStabilisationEnabled = (pidControllerState == PID_STABILISATION_ON) ? true : false
 ```
 
-Here, the condition shall be enclosed in braces, to make the ternary operator easier to spot when reading left to right.
+这里，条件应括在大括号中，以便从左到右阅读时更容易发现三元运算符。
 
 ## Includes
 
-All files must include their own dependencies and not rely on includes from the included files or that some other file was included first.
+所有文件都必须包含其自己的依赖项，并且不依赖于包含的头文件中的包含项或某些文件需要先包含。
 
-Do not include things you are not using.
-
-"[#pragma once](https://en.wikipedia.org/wiki/Pragma_once)" is preferred over "#include guards" to avoid multiple includes.
-
+不要包含您不使用的东西。
 
 ## Other details
 
