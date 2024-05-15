@@ -65,7 +65,13 @@
    Test/XW16Pro白色烧录器生成烧录文件(服务端)
    Test/XW16Pro白色烧录器提取程序(客户端)
    OTA/OTA固件升级
-   
+
+.. toctree::
+   :maxdepth: 2
+   :caption: TDD
+
+   TDD/CppUTest
+
 .. toctree::
    :maxdepth: 2
    :caption: 测试
