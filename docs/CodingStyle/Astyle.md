@@ -3,7 +3,8 @@
 ## 安装Astyle到电脑
 
 1. Astyle下载链接：[https://astyle.sourceforge.net/](https://astyle.sourceforge.net/)
-2. 将Astyle添加到系统环境变量
+2. 版本使用3.4.10
+3. 将Astyle添加到系统环境变量
 
 ![](images/sys-path.png)
 
@@ -29,40 +30,36 @@
     "--style=kr",
     // 将tab转为4个空格
     "--convert-tabs",
+    // 缩进4个空格
+    "--indent=spaces=4",
+    "--min-conditional-indent=0",
     // 对于控制流程如果是当行的加入花括号
     "--add-braces",
     // 缩进case标签
     "--indent-switches",
     // 缩进标签
     "--indent-labels",
-    // 缩进预处理
-    "--indent-preprocessor",
-    //缩进一行的注释
+    // 缩进一行的注释
     "--indent-col1-comments",
-    //缩进命名空间
+    // 缩进命名空间
     "--indent-namespaces",
-    //控制关键字 后添加空格
+    // 控制关键字 后添加空格
     "--pad-header",
     // 操作符号添加空格
     "--pad-oper",
-    //一行的块代码添加花括号
-    "--add-brackets",
-    //对于一行的代码保持不换行
+    // 对于一行的代码保持不换行
     "--keep-one-line-blocks",
-    // 缩进4个空格
-    "--indent=spaces=4",
-    "--min-conditional-indent=0",
-    "--max-instatement-indent=40",
-    //块之间添加空行
+    // 块之间添加空行
     "--break-blocks",
-    //括号内的参数和括号不添加空格
+    // 括号内的参数和括号不添加空格
     "--unpad-paren",
     // 指针符号贴近变量名
     "--align-pointer=name",
     // 引用符号贴近变量名
-    "--align-reference=name"
-    // 模式设置为C
-    //"--mode=c"
+    "--align-reference=name",
+    // 删除多余行
+    "--delete-empty-lines",
+    "--squeeze-lines=1",
 ],
 ```
 
