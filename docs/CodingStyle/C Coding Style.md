@@ -1,16 +1,16 @@
-# C Coding Style
+# C 语言代码风格指南
 
 本文档翻译改编自Betaflight代码风格：[链接](https://betaflight.com/docs/development/CodingStyle)
 
-## Formatting style
-
-### 缩进
-
-[1TBS](https://en.wikipedia.org/wiki/Indentation_style#Variant:_1TBS_(OTBS)) (based K&R) 4个空格缩进，没有硬件制表符(所有制表符都用空格代替)。
+## 格式化代码风格
 
 ### 工具支持
 
 参考[使用VSCode格式化代码](Astyle)
+
+### 缩进
+
+[1TBS](https://en.wikipedia.org/wiki/Indentation_style#Variant:_1TBS_(OTBS)) (based K&R) 4个空格缩进，没有硬件制表符(所有制表符都用空格代替)。
 
 ### 大括号
 
@@ -258,28 +258,26 @@ pidStabilisationEnabled = (pidControllerState == PID_STABILISATION_ON) ? true : 
 
 不要包含您不使用的东西。
 
-## Other details
+## 其他
 
-No trailing whitespace at the end of lines or at blank lines.
+行尾或空行不要有多余空格。
 
-Stay within 120 columns, unless exceeding 120 columns significantly increases readability and does not hide information.
-(Less is acceptable. More than 140 makes it difficult to read on Github so that shall never be exceeded.)
+一行保持在 120 列以内，除非超过 120 列会显着提高可读性并且不会隐藏信息。
+（少一点是可以接受的。超过 140 则很难在 Github 上阅读，所以永远不要超过。）
 
-Take maximum possible advantage of compile time checking, so generally warnings should be as strict as possible.
+最大限度地利用编译时检查，因此通常对待警告要尽可能严格。
 
-Don't call or reference "upwards". That is don't call or use anything in a software layer that is above the current layer. The software layers are not that obvious, but we can certainly say that device drivers are the bottom layer and so should not call or use anything outside the device drivers.
+不要“向上”调用或者引用。也就是说，不要调用或使用当前层之上的软件层中的任何内容。软件层并不那么明显，但我们可以肯定地说设备驱动程序是底层，因此设备驱动层不应调用或使用其之外的任何内容。
 
-Target specific code (e.g. #ifdef CC3D) is not permissible outside of the `src/main/target` directory.
+`typedef void handlerFunc(void);` 比 `typedef void (*handlerFuncPtr)(void);` 读起来更容易。
 
-`typedef void handlerFunc(void);` is easier to read than `typedef void (*handlerFuncPtr)(void);`.
+代码应该是球形的。
+也就是说，相对于其功能的表面积（公共接口）应该最小化。
+这是公共接口应该易于使用的另一种说法，
+做一些必要的事情，所有的实现都应该隐藏并且对用户来说不重要。
 
-Code should be spherical.
-That is its surface area (public interfaces) relative to its functionality should be minimised.
-Which is another way of saying that the public interfaces shall be easy to use,
-do something essential and all implementation should be hidden and unimportant to the user
+代码应该在理论上和实践中都有效。
+它应该基于合理的数学、物理或计算机科学原理，而不仅仅是启发法。
+这对于测试代码也很重要。测试应基于这些原则和现实世界的属性，因此它们不仅仅测试当前的实现。
 
-Code should work in theory as well as in practice.
-It should be based on sound mathematical, physical or computer science principles rather than just heuristics.
-This is important for test code too. Tests shall be based on such principles and real-world properties so they don't just test the current implementation as it happens to be.
-
-Guidelines not tramlines: guidelines are not totally rigid - they can be broken when there is good reason.
+指南而不是准则：指南并不是完全严格的——只要有充分的理由，它们就可以被打破。
