@@ -34,11 +34,11 @@
    :caption: Git
    
    Git/Git Intro
-   Git/Keil Project .gitignore
-   Git/gitflow
    Git/图解Git
-   Git/Github上传Release
    Git/Git常用命令
+   Git/gitflow
+   Git/Keil Project .gitignore
+   Git/Github上传Release
    Git/切换到添加新submodule分支问题
 
 .. toctree::
