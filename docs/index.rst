@@ -38,8 +38,9 @@
    Git/Git常用命令
    Git/gitflow
    Git/Keil Project .gitignore
-   Git/Github上传Release
    Git/切换到添加新submodule分支问题
+   Git/Github上传Release
+   Git/Github自动发布
 
 .. toctree::
    :maxdepth: 2
