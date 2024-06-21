@@ -26,7 +26,7 @@
 
 合并后在`main`分支上打版本`tag`，`tag`格式参考下方[Tag格式](#tag格式)
 
-推送新的`tag`到远程仓库，检测自动发布action是否执行成功。
+推送新的`tag`到远程仓库，检查自动发布action是否执行成功。
 
 ![image](images/github-aciton-status.png)
 
@@ -36,7 +36,7 @@
 
 ### 确认发布
 
-检测发布信息是否正确，以及发布日志是否需要修改。确定无误后电机Publish release按钮正式发布。
+检查发布信息是否正确，以及发布日志是否需要修改。确定无误后点击Publish release按钮正式发布。
 
 ![image](images/github-action-release-confirm.png)
 
@@ -44,7 +44,7 @@
 
 ### 小版本发布
 
-[工程名称]-v[主板版本号].[小版本号].[补丁号]
+[工程名称]-v[主版本号].[小版本号].[补丁号]
 
 注：
 - 实际没有方括号，这里只是为了区分；
@@ -57,8 +57,8 @@
 
 圆形
 
-CleanRobot-v[主板版本号].[小版本号].[补丁号]
+CleanRobot-v[主版本号].[小版本号].[补丁号]
 
 方形
 
-CleanRobot-Square-v[主板版本号].[小版本号].[补丁号]
+CleanRobot-Square-v[主版本号].[小版本号].[补丁号]
