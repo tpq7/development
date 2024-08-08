@@ -112,6 +112,22 @@ merge 命令把不同分支合并起来。合并前，索引必须和当前提�
 
 ![image](images/git_diagram_18.png)
 
+### Squashing
+
+Git Squashing 用于将多个提交压缩为单个、合并的提交。
+
+![image](images/git_squashing.png)
+
+这个概念很容易理解，如果使用的统一代码的方法是衍合，则特别有用，因为历史记录会被改变，所以注意对项目历史记录的影响很重要。有时我很难执行挤压，特别是使用交互式衍合，幸运的是我们有一些工具可以帮助我们。这是我首选的压缩方法，其中涉及将 HEAD 指针向后移动 X 次提交，同时保留分阶段的更改。
+```
+# Change to the number after HEAD~ depending on the commits you want to squash
+git reset --soft HEAD~X
+git commit -m "Your squashed commit message"
+git push origin your_branch --force
+```
+
+> 使用 --force 时要小心，因为它有可能覆盖目标分支的历史记录。通常应避免在 main/master 分支上应用它。
+
 ### Cherry Pick
 cherry-pick命令"复制"一个提交节点并在当前分支做一次完全一样的新提交。
 

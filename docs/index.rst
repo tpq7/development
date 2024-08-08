@@ -34,12 +34,13 @@
    :caption: Git
    
    Git/Git Intro
-   Git/Keil Project .gitignore
-   Git/gitflow
    Git/图解Git
-   Git/Github上传Release
    Git/Git常用命令
+   Git/gitflow
+   Git/Keil Project .gitignore
    Git/切换到添加新submodule分支问题
+   Git/Github上传Release
+   Git/Github自动发布
 
 .. toctree::
    :maxdepth: 2
@@ -61,6 +62,7 @@
    Keil/Keil新建公司工程教程
    Test/J-LINK(SWD)项目下载教程
    Test/J-Flash使用教程
+   Test/应广单片机烧录下载引脚配置
    Test/PRGMR烧录器生成烧录文件(服务端)
    Test/XW16Pro白色烧录器生成烧录文件(服务端)
    Test/XW16Pro白色烧录器提取程序(客户端)
