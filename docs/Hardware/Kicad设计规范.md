@@ -77,3 +77,6 @@ Library\kicad_dr_2_m\kicad_dr_2_m.kicad_pcb
 
 ## PCB封装设计规范
 
+参考如下文档：
+
+[如何新建封装](https://docs.kicad.org/8.0/zh/getting_started_in_kicad/getting_started_in_kicad.html#%E6%96%B0%E5%BB%BA%E5%B0%81%E8%A3%85)
