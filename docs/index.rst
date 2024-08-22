@@ -93,6 +93,7 @@
    Hardware/硬件开发流程
    Hardware/Kicad设计规范
    Hardware/原理图元器件参数命名规则
+   Hardware/元器件类别编码
    Hardware/IC Selector
 
 .. toctree::
