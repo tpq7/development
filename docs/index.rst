@@ -70,6 +70,12 @@
 
 .. toctree::
    :maxdepth: 2
+   :caption: Protocol
+
+   Protocol/Ble Protocols
+
+.. toctree::
+   :maxdepth: 2
    :caption: TDD
 
    TDD/CppUTest
