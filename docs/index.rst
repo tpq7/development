@@ -76,6 +76,12 @@
 
 .. toctree::
    :maxdepth: 2
+   :caption: Remote
+
+   Remote/遥控器型号说明
+
+.. toctree::
+   :maxdepth: 2
    :caption: TDD
 
    TDD/CppUTest
