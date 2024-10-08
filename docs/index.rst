@@ -76,12 +76,6 @@
 
 .. toctree::
    :maxdepth: 2
-   :caption: Remote
-
-   Remote/遥控器型号说明
-
-.. toctree::
-   :maxdepth: 2
    :caption: TDD
 
    TDD/CppUTest
@@ -107,6 +101,7 @@
    Hardware/原理图元器件参数命名规则
    Hardware/元器件类别编码
    Hardware/IC Selector
+   Hardware/遥控器型号说明
 
 .. toctree::
    :maxdepth: 2
