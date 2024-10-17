@@ -13,6 +13,7 @@
 
    CodingStyle/C Coding Style
    CodingStyle/Astyle
+   CodingStyle/C 语言项目目录结构规范
 
 .. toctree::
    :maxdepth: 2
