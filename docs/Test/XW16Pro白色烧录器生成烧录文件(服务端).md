@@ -27,9 +27,9 @@
 
 ![image](image/XW16Pro_03.png)
 
-6、设置配置字，禁止读出
+6、**设置配置字，禁止读出（非常重要！！！）**
 
-![image](image/XW16Pro_05.png)
+![image](image/XW16Pro_05-1.png)
 
 7、导入程序数据
 
