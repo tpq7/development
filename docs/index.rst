@@ -22,6 +22,7 @@
    CLang/C Operator Precedence
    CLang/macros
    CLang/docxygen_format
+   VSCode/VSCode用Doxygen自定义代码注释配置
 
 .. toctree::
    :maxdepth: 2
@@ -49,7 +50,6 @@
 
    VSCode/VSCode用EIDE编译项目
    VSCode/VSCode用CPPCheck静态代码审查工具
-   VSCode/VSCode用Doxygen自定义代码注释配置
    VSCode/常用插件
    VSCode/FAQ
    VSCode/VSCode常用快捷键
