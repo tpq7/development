@@ -21,6 +21,7 @@
 
    CLang/C Operator Precedence
    CLang/macros
+   CLang/macros-zh
    CLang/docxygen_format
 
 .. toctree::
