@@ -26,7 +26,7 @@
 |   |   |   | WATER_PUMP_DURATION | 0-500 | 喷水时间 |
 |   |   |   | WATER_PUMP_START_ANGLE | 0-100 | 喷水角度 |
 |   |   |   | WATER_PUMP_MOVE_CNT | 0-10 | 喷水间隔步数 |
-| 陀螺仪 | 308 | MSP_GET_GYRO_THRESHOLD | GYRO_DIFF_THRESHOLD | 0-200 | 检测边缘陀螺仪变化值阈值 |
+| 陀螺仪 | 307 | MSP_GET_GYRO_THRESHOLD | GYRO_DIFF_THRESHOLD | 0-200 | 检测边缘陀螺仪变化值阈值 |
 |   |   |   | GGYRO_THRESHOLD | 0-200 | 检测边缘堵转陀螺仪阈值 |
 |   |   |   | GGYRO_UP_DIFF_THRESHOLD | 0-200 | 向上走边缘陀螺仪变化值阈值 |
 |   |   |   | GGYRO_UP_THRESHOLD | 0-200 | 向上走边缘堵转陀螺仪阈值 |
@@ -60,7 +60,7 @@
 |   |   |   | WATER_PUMP_DURATION | 0-500 | 喷水时间 |
 |   |   |   | WATER_PUMP_START_ANGLE | 0-100 | 喷水角度 |
 |   |   |   | WATER_PUMP_MOVE_CNT | 0-10 | 喷水间隔步数 |
-| 陀螺仪 | 408 | MSP_SET_GYRO_THRESHOLD | GYRO_DIFF_THRESHOLD | 0-200 | 检测边缘陀螺仪变化值阈值 |
+| 陀螺仪 | 407 | MSP_SET_GYRO_THRESHOLD | GYRO_DIFF_THRESHOLD | 0-200 | 检测边缘陀螺仪变化值阈值 |
 |   |   |   | GGYRO_THRESHOLD | 0-200 | 检测边缘堵转陀螺仪阈值 |
 |   |   |   | GGYRO_UP_DIFF_THRESHOLD | 0-200 | 向上走边缘陀螺仪变化值阈值 |
 |   |   |   | GGYRO_UP_THRESHOLD | 0-200 | 向上走边缘堵转陀螺仪阈值 |
