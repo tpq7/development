@@ -6,6 +6,12 @@
 欢迎来到天迈开发文档
 ====================
 
+.. toctree::
+   :maxdepth: 2
+   :caption: 文档
+
+   Document/MarkDown使用教程
+   Document/sphinx文档二次开发教程
 
 .. toctree::
    :maxdepth: 2
