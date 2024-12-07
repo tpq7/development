@@ -329,13 +329,13 @@ Simple response
 
 | device | command | size |
 | ------ | ------- | ---- |
-| 0x02   | 130    | 0x00 |
+| 0x03   | 130    | 0x00 |
 
 **Response：**
 
 | device | command | size | pwmValue |
 | ------ | ------- | ---- | -----------|
-| 0x02   | 130    | 0x01 | 8 bit unsigned |
+| 0x03   | 130    | 0x01 | 8 bit unsigned |
 
 #### MSP_GET_USE_FAN_LEVEL_DYNAMIC_COMP 131
 
@@ -343,13 +343,13 @@ Simple response
 
 | device | command | size |
 | ------ | ------- | ---- |
-| 0x02   | 131    | 0x00 |
+| 0x03   | 131    | 0x00 |
 
 **Response：**
 
 | device | command | size | pwmvalueMax | pwmvalueMin|
 | ------ | ------- | ---- | -----------|-----------|
-| 0x02   | 131    | 0x02 | 8 bit unsigned |8 bit unsigned |
+| 0x03   | 131    | 0x02 | 8 bit unsigned |8 bit unsigned |
 
 #### MSP_GET_USE_FAN_OUTPUT_PID 132
 
@@ -357,13 +357,13 @@ Simple response
 
 | device | command | size |
 | ------ | ------- | ---- |
-| 0x02   | 132    | 0x00 |
+| 0x03   | 132    | 0x00 |
 
 **Response：**
 
 | device | command | size | fanPwmvalueAtIdle | fanPwmvalueMin|fanPwmvalueMax|defaultTargetFanPwmvalue|maxTargetFanPwmvalue|minTargetFanPwmvalue|
 | ------ | ------- | ---- | -----------|-----------|------- | ---- | -----------|-----------|
-| 0x02   | 132    | 0x09 | 8 bit unsigned |8 bit unsigned |8 bit unsigned |16 bit unsigned |16 bit unsigned |16 bit unsigned |
+| 0x03   | 132    | 0x09 | 8 bit unsigned |8 bit unsigned |8 bit unsigned |16 bit unsigned |16 bit unsigned |16 bit unsigned |
 
 #### MSP_GET_MOTOR_VALUE 133
 
@@ -371,13 +371,13 @@ Simple response
 
 | device | command | size |
 | ------ | ------- | ---- |
-| 0x02   | 133    | 0x00 |
+| 0x03   | 133    | 0x00 |
 
 **Response：**
 
 | device | command | size | minPwmValue | upMinPwmValue|
 | ------ | ------- | ---- | -----------|-----------|
-| 0x02   | 133    | 0x02 | 8 bit unsigned |8 bit unsigned |
+| 0x03   | 133    | 0x02 | 8 bit unsigned |8 bit unsigned |
 
 #### MSP_GET_BOUNDLESS 134
 
@@ -385,13 +385,13 @@ Simple response
 
 | device | command | size |
 | ------ | ------- | ---- |
-| 0x02   | 134    | 0x00 |
+| 0x03   | 134    | 0x00 |
 
 **Response：**
 
 | device | command | size | fanThrdAddE | fanUpThrdAdd|hangCnt|
 | ------ | ------- | ---- | -----------|-----------| -----------|
-| 0x02   | 134    | 0x03 | 8 bit unsigned |8 bit unsigned |8 bit unsigned |
+| 0x03   | 134    | 0x03 | 8 bit unsigned |8 bit unsigned |8 bit unsigned |
 
 #### MSP_GET_SPRAY_VALUE 135
 
@@ -399,13 +399,13 @@ Simple response
 
 | device | command | size |
 | ------ | ------- | ---- |
-| 0x02   | 135    | 0x00 |
+| 0x03   | 135    | 0x00 |
 
 **Response：**
 
 | device | command | size | waterPump | waterPumpDuration|waterPumpStartAngle|waterPumpMoveCnt|
 | ------ | ------- | ---- | -----------|-----------| -----------|-----------|
-| 0x02   | 135    | 0x05 | 8 bit unsigned |16 bit unsigned |8 bit unsigned |8 bit unsigned |
+| 0x03   | 135    | 0x05 | 8 bit unsigned |16 bit unsigned |8 bit unsigned |8 bit unsigned |
 
 #### MSP_GET_GYRO_THRESHOLD 136
 
@@ -413,13 +413,13 @@ Simple response
 
 | device | command | size |
 | ------ | ------- | ---- |
-| 0x02   | 136    | 0x00 |
+| 0x03   | 136    | 0x00 |
 
 **Response：**
 
 | device | command | size | gyroDiffThreshold | gyroThreshold|gyroUpDiffThreshold|gyroUpThreshold|
 | ------ | ------- | ---- | -----------|-----------| -----------|-----------|
-| 0x02   | 136    | 0x04 | 8 bit unsigned |8 bit unsigned |8 bit unsigned |8 bit unsigned |
+| 0x03   | 136    | 0x04 | 8 bit unsigned |8 bit unsigned |8 bit unsigned |8 bit unsigned |
 
 #### MSP_SET_PWMVALUE 220
 
@@ -427,7 +427,7 @@ Simple response
 
 | device | command | size | pwmValue |
 | ------ | ------- | ---- | -----------|
-| 0x02   | 220    | 0x01 | 8 bit unsigned |
+| 0x03   | 220    | 0x01 | 8 bit unsigned |
 
 **Response：**
 
@@ -439,7 +439,7 @@ Simple response
 
 | device | command | size | pwmvalueMax | pwmvalueMin|
 | ------ | ------- | ---- | -----------|-----------|
-| 0x02   | 221    | 0x02 | 8 bit unsigned |8 bit unsigned |
+| 0x03   | 221    | 0x02 | 8 bit unsigned |8 bit unsigned |
 
 **Response：**
 
@@ -451,7 +451,7 @@ Simple response
 
 | device | command | size | fanPwmvalueAtIdle | fanPwmvalueMin|fanPwmvalueMax|defaultTargetFanPwmvalue|maxTargetFanPwmvalue|minTargetFanPwmvalue|
 | ------ | ------- | ---- | -----------|-----------|------- | ---- | -----------|-----------|
-| 0x02   | 222    | 0x09 | 8 bit unsigned |8 bit unsigned |8 bit unsigned |16 bit unsigned |16 bit unsigned |16 bit unsigned |
+| 0x03   | 222    | 0x09 | 8 bit unsigned |8 bit unsigned |8 bit unsigned |16 bit unsigned |16 bit unsigned |16 bit unsigned |
 
 **Response：**
 
@@ -463,7 +463,7 @@ Simple response
 
 | device | command | size | minPwmValue | upMinPwmValue|
 | ------ | ------- | ---- | -----------|-----------|
-| 0x02   | 223    | 0x02 | 8 bit unsigned |8 bit unsigned |
+| 0x03   | 223    | 0x02 | 8 bit unsigned |8 bit unsigned |
 
 **Response：**
 
@@ -475,7 +475,7 @@ Simple response
 
 | device | command | size | fanThrdAddE | fanUpThrdAdd|hangCnt|
 | ------ | ------- | ---- | -----------|-----------| -----------|
-| 0x02   | 134    | 0x03 | 8 bit unsigned |8 bit unsigned |8 bit unsigned |
+| 0x03   | 134    | 0x03 | 8 bit unsigned |8 bit unsigned |8 bit unsigned |
 
 **Response：**
 
@@ -487,7 +487,7 @@ Simple response
 
 | device | command | size | waterPump | waterPumpDuration|waterPumpStartAngle|waterPumpMoveCnt|
 | ------ | ------- | ---- | -----------|-----------| -----------|-----------|
-| 0x02   | 225    | 0x05 | 8 bit unsigned |16 bit unsigned |8 bit unsigned |8 bit unsigned |
+| 0x03   | 225    | 0x05 | 8 bit unsigned |16 bit unsigned |8 bit unsigned |8 bit unsigned |
 
 **Response：**
 
@@ -499,7 +499,7 @@ Simple response
 
 | device | command | size | gyroDiffThreshold | gyroThreshold|gyroUpDiffThreshold|gyroUpThreshold|
 | ------ | ------- | ---- | -----------|-----------| -----------|-----------|
-| 0x02   | 136    | 0x04 | 8 bit unsigned |8 bit unsigned |8 bit unsigned |8 bit unsigned |
+| 0x03   | 136    | 0x04 | 8 bit unsigned |8 bit unsigned |8 bit unsigned |8 bit unsigned |
 
 **Response：**
 
