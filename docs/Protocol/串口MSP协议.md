@@ -5,8 +5,8 @@
 \<preamble>,\<option>,\<device>,\<command>,\<size>,\<data>,\<crc>
 | 项 | 描述 | 注释 |
 | ----------- | ----------- | ----------- |
-| preamble | 包的序言 | 总是为 0xFF |
-| option | 包的选择 | 见下文 |
+| preamble | 包头 | 总是为 0xFF |
+| option | 选项 | 见下文 |
 | device | 设备码 | 此包适用于设备 |
 | command | 包命令 | 见下文 |
 | size | 数据所占字节数 | |
@@ -26,8 +26,8 @@
 \<preamble>,\<option>,\<command>,\<size>,\<data>,\<crc>
 | 项 | 描述 | 注释 |
 | ----------- | ----------- | ----------- |
-| preamble | 包的序言 | 总是为 0xFF |
-| option | 包的选择 | 当这是一个确认时设置为0xFF，当这是一个异步消息时设置为0xFE |
+| preamble | 包头 | 总是为 0xFF |
+| option | 选项 | 当这是一个确认时设置为0xFF，当这是一个异步消息时设置为0xFE |
 | command | 包命令 | 见下文 |
 | size | 数据所占字节数 | |
 | data | 数据 | 命令附带的可选数据 |
@@ -54,108 +54,89 @@
 | 0x08 | CMD_BINARY_TRANS |
 | 0x09 | CMD_BINARY_TRANS_OVER |
 
-## 命令 Command
+## 光伏
 
-### API命令
+### 光伏命令 Command
 
 | 值 | 名称 | 描述 |
 | ----- | ---- | ---- |
-| 0x61 | CMD_RANGEFINDER | 获取超声波距离 |
-| 0x62 | CMD_SET_HEARTBEAT | 设置心跳值(s)，默认1s发送一次心跳包 |
-| 0x63 | CMD_SET_ROTATE | 设置旋转角度值 |
-| 0x64 | CMD_SET_SPEED | 设置速度值 |
-| 0x65 | CMD_SET_LINE_STATUS | 设置栅线数据 |
-| 0x66 | CMD_RAW_IMU | 获取陀螺仪加速度原始值 |
-| 0x67 | CMD_GET_LINE_STATUS | 获取栅线数据 |
-| 0x68 | CMD_MOTOR_SPEED | 获取速度 |
-| 0x69 | CMD_CROSS_BATT | 获取跨电池片数量 |
-| 0x6C | CMD_ATTITUDE | 获取姿态角 |
-| 0x6D | CMD_SYSTEM | 获取系统任务信息 |
-| 0x6E | CMD_GET_REVEIVER | 获取遥控器通道数据 |
-| 0x6F | CMD_FRAMERATE | 设置视觉处理帧率 |
-| 0x82 | CMD_BATTERY_STATE | 获取电池状态 |
-| 0x84 | CMD_GET_TEMP | 获取电机温度 |
-| 0x85 | CMD_GET_MOVE_STATUS | 获取运动状态 |
-| 0x86 | CMD_SET_CELL_INFO | 设置电池片尺寸信息 |
+| 97 | CMD_RANGEFINDER | 获取超声波距离 |
+| 98 | CMD_SET_HEARTBEAT | 设置心跳值(s)，默认1s发送一次心跳包 |
+| 99 | CMD_SET_ROTATE | 设置旋转角度值 |
+| 100 | CMD_SET_SPEED | 设置速度值 |
+| 101 | CMD_SET_LINE_STATUS | 设置栅线数据 |
+| 102 | CMD_RAW_IMU | 获取陀螺仪加速度原始值 |
+| 103 | CMD_GET_LINE_STATUS | 获取栅线数据 |
+| 104 | CMD_MOTOR_SPEED | 获取速度 |
+| 105 | CMD_CROSS_BATT | 获取跨电池片数量 |
+| 108 | CMD_ATTITUDE | 获取姿态角 |
+| 109 | CMD_SYSTEM | 获取系统任务信息 |
+| 110 | CMD_GET_REVEIVER | 获取遥控器通道数据 |
+| 111 | CMD_FRAMERATE | 设置视觉处理帧率 |
+| 130 | CMD_BATTERY_STATE | 获取电池状态 |
+| 132 | CMD_GET_TEMP | 获取电机温度 |
+| 133 | CMD_GET_MOVE_STATUS | 获取运动状态 |
+| 134 | CMD_SET_CELL_INFO | 设置电池片尺寸信息 |
 
-### 配置命令（上位机）
+### 光伏命令细节 Command Detial
 
-| 值 | 指令名称 | 描述 |
-| ----- | ---- | ---- |
-| 130 | MSP_GET_PWMVALUE | 获取风机占比 |
-| 131 | MSP_GET_USE_FAN_LEVEL_DYNAMIC_COMP | 获取风机最大最小占比 |
-| 132 | MSP_GET_USE_FAN_OUTPUT_PID | 获取风机恒压占比 |
-| 133 | MSP_GET_MOTOR_VALUE | 获取马达占比 |
-| 134 | MSP_GET_BOUNDLESS | 获取无边电流 |
-| 135 | MSP_GET_SPRAY_VALUE | 获取喷水功能 |
-| 136 | MSP_GET_GYRO_THRESHOLD | 获取陀螺仪阈值 |
-| 220 | MSP_SET_PWMVALUE | 设置风机占比 |
-| 221 | MSP_SET_USE_FAN_LEVEL_DYNAMIC_COMP | 设置风机最大最小占比 |
-| 222 | MSP_SET_USE_FAN_OUTPUT_PID | 设置风机恒压占比 |
-| 223 | MSP_SET_MOTOR_VALUE | 设置马达占比 |
-| 224 | MSP_SET_BOUNDLESS | 设置无边电流 |
-| 225 | MSP_SET_SPRAY_VALUE | 设置喷水功能 |
-| 226 | MSP_SET_GYRO_THRESHOLD | 设置陀螺仪阈值 |
+#### CMD_RANGEFINDER 97
 
-## API 命令细节 API Command Detial
-
-### CMD_RANGEFINDER 0x61
-
-#### Require
+**Require：**
 
 | device | command | size |
 | ------ | ------- | ---- |
-| 0x03   | 0x61    | 0x00 |
+| 0x03   | 97    | 0x00 |
 
-#### Response
+**Response：**
 
 | command | size | left front | right front | left back | right back | sample rate |
 | ------- | ---- | -----------| ----------- | ----------| ---------- | ----------  |
-| 0x61    | 0x0A | 16 bit unsigned  | 16 bit unsigned | 16 bit unsigned | 16 bit unsigned | 16 bit unsigned |
+| 97    | 0x0A | 16 bit unsigned  | 16 bit unsigned | 16 bit unsigned | 16 bit unsigned | 16 bit unsigned |
 
-### CMD_SET_HEARTBEAT 0x62
+#### CMD_SET_HEARTBEAT 98
 
-#### Require
-
-| device | command | size | rotate value | 
-| ------ | ------- | ---- | ----------------|
-| 0x03   | 0x62    | 0x02 | 16 bit signed   |
-
-#### Response
-
-Simple response
-
-### CMD_SET_ROTATE 0x63
-
-#### Require
+**Require：**
 
 | device | command | size | rotate value | 
 | ------ | ------- | ---- | ----------------|
-| 0x03   | 0x63    | 0x02 | 16 bit signed   |
+| 0x03   | 98    | 0x02 | 16 bit signed   |
 
-#### Response
+**Response：**
 
 Simple response
 
-### CMD_SET_SPEED 0x64
+#### CMD_SET_ROTATE 99
 
-#### Require
+**Require：**
+
+| device | command | size | rotate value | 
+| ------ | ------- | ---- | ----------------|
+| 0x03   | 99    | 0x02 | 16 bit signed   |
+
+**Response：**
+
+Simple response
+
+#### CMD_SET_SPEED 100
+
+**Require：**
 
 | device | command | size | speed value | 
 | ------ | ------- | ---- | ----------------|
-| 0x03   | 0x64    | 0x02 | 16 bit signed   |
+| 0x03   | 100    | 0x02 | 16 bit signed   |
 
-#### Response
+**Response：**
 
 Simple response
 
-### CMD_SET_LINE_STATUS 0x65
+#### CMD_SET_LINE_STATUS 101
 
-#### Require
+**Require：**
 
 | device | command | size | busbar distance | busbar angle  | gap distance  | gap angle     | state          |
 | ------ | ------- | ---- | ----------------| ------------- | ------------  | ------------- | -------------- |
-| 0x03   | 0x65    | 0x08 | 16 bit signed   | 16 bit signed | 16 bit signed | 16 bit signed | 8 bit unsigned |
+| 0x03   | 101    | 0x08 | 16 bit signed   | 16 bit signed | 16 bit signed | 16 bit signed | 8 bit unsigned |
 
 | state     | value |
 | --------- | ----- |
@@ -164,77 +145,77 @@ Simple response
 | 水平有数据 | 0x02  |
 | 异常       | 0x03  |
 
-#### Response
+**Response：**
 
 Simple response
 
-### CMD_MOTOR_SPEED 0x68
+#### CMD_MOTOR_SPEED 104
 
-#### Require
+**Require：**
 
 | device | command | size |
 | ------ | ------- | ---- |
-| 0x03   | 0x68    | 0x00 |
+| 0x03   | 104    | 0x00 |
 
-#### Response
+**Response：**
 
 | command | size | left raw speed | right raw speed | average speed | move distance |
 | ------- | ---- | ---------------| --------------- | --------------| ------------- |
-| 0x68    | 0x0C | 32 bit signed  | 32 bit signed   | 16 bit signed | 16 bit signed |
+| 104    | 0x0C | 32 bit signed  | 32 bit signed   | 16 bit signed | 16 bit signed |
 
-### CMD_ATTITUDE 0x6C
+#### CMD_ATTITUDE 108
 
-#### Require
+**Require：**
 
 | device | command | size |
 | ------ | ------- | ---- |
-| 0x03   | 0x6C    | 0x00 |
+| 0x03   | 108    | 0x00 |
 
-#### Response
+**Response：**
 
 | command | size | yaw | pitch | roll | merge yaw |
 | ------- | ---- | ---------------| --------------- | --------------| ------------- |
-| 0x6C    | 0x08 | 16 bit signed  | 16 bit signed   | 16 bit signed | 16 bit signed |
+| 108    | 0x08 | 16 bit signed  | 16 bit signed   | 16 bit signed | 16 bit signed |
 
-### CMD_GET_REVEIVER 0x6E
+#### CMD_GET_REVEIVER 110
 
-#### Require
+**Require：**
 
 | device | command | size |
 | ------ | ------- | ---- |
-| 0x03   | 0x6E    | 0x00 |
+| 0x03   | 110    | 0x00 |
 
-#### Response
+**Response：**
 
 | command | size | thr | yaw | arm | mode | sucker | brush | failsafe |
 | ------- | ---- | --- | --- | ----| ---- | -------| ----- | -------- |
-| 0x6E    | 0x0E | 16 bit unsigned  | 16 bit unsigned   | 16 bit unsigned | 16 bit unsigned | 16 bit unsigned | 16 bit unsigned | 16 bit unsigned |
+| 110    | 0x0E | 16 bit unsigned  | 16 bit unsigned   | 16 bit unsigned | 16 bit unsigned | 16 bit unsigned | 16 bit unsigned | 16 bit unsigned |
 
-### CMD_FRAMERATE 0x6F
+#### CMD_FRAMERATE 111
 
-#### Require
+**Require：**
 
 | device | command | size | rotate value | 
 | ------ | ------- | ---- | ----------------|
-| 0x03   | 0x6F    | 0x02 | 16 bit signed   |
+| 0x03   | 111    | 0x02 | 16 bit signed   |
 
-#### Response
+**Response：**
 
 Simple response
 
-### CMD_BATTERY_STATE 0x82
+#### CMD_BATTERY_STATE 130
 
-#### Require
+**Require：**
 
 | device | command | size |
 | ------ | ------- | ---- |
-| 0x03   | 0x82    | 0x00 |
+| 0x03   | 130    | 0x00 |
 
-#### Response
+**Response：**
 
 | command | size | battery voltage | battery state |
 | ------- | ---- | ----------------| -------------- |
-| 0x82    | 0x03 | 16 bit unsigned | 8 bit unsigned |
+| 130    | 0x03 | 16 bit unsigned | 8 bit unsigned |
 
 电池电压为0.01V级
 
@@ -245,43 +226,43 @@ Simple response
 | BATTERY_CRITICAL | 0x02 |
 | BATTERY_NOT_PRESENT | 0x03 |
 
-### CMD_GET_TEMP 0x84
+#### CMD_GET_TEMP 132
 
-#### Require
+**Require：**
 
 | device | command | size |
 | ------ | ------- | ---- |
-| 0x03   | 0x84    | 0x00 |
+| 0x03   | 132    | 0x00 |
 
-#### Response
+**Response：**
 
 | command | size | temperature |
 | ------- | ---- | ------------|
-| 0x84    | 0x01 | 16 bit signed |
+| 132    | 0x01 | 16 bit signed |
 
 温度以10℃为一级
 
-### CMD_GET_MOVE_STATUS 0x85
+#### CMD_GET_MOVE_STATUS 133
 
-#### Require
+**Require：**
 
 | device | command | size |
 | ------ | ------- | ---- |
-| 0x03   | 0x85    | 0x00 |
+| 0x03   | 133    | 0x00 |
 
-#### Response
+**Response：**
 
 | command | size | move mode | path state |
 | ------- | ---- | ------------| -------- |
-| 0x85    | 0x02 | 8 bit unsigned | 8 bit unsigned |
+| 133    | 0x02 | 8 bit unsigned | 8 bit unsigned |
 
-### CMD_SET_CELL_INFO 0x86
+#### CMD_SET_CELL_INFO 134
 
-#### Require
+**Require：**
 
 | device | command | size | cell width | cell type | run dir  |
 | ------ | ------- | ---- | -----------| --------- | -------- |
-| 0x03   | 0x86    | 0x04 | 16 bit unsigned | 8 bit unsigned | 8 bit unsigned |
+| 0x03   | 134    | 0x04 | 16 bit unsigned | 8 bit unsigned | 8 bit unsigned |
 
 cell width: 电池片短边宽度
 
@@ -289,191 +270,240 @@ cell type: 0 半片；1 全片
 
 run dir: 0 沿着长边运动；1 沿着短边运动
 
-#### Response
+**Response：**
 
 Simple response
 
-## 配置命令细节
+## 擦窗机
 
-### MSP_GET_PWMVALUE 130
+### 擦窗机命令 Command
 
-#### Require
+| 值 | 指令名称 | 描述 |
+| ----- | ---- | ---- |
+| 读取 |
+| 102 | MSP_RAW_IMU | 陀螺仪加速度原始值 |
+| 103 | MSP_DATA_POINT | 测试数据点 |
+| 104 | MSP_GYRO_DETECT | 陀螺仪撞边判断 |
+| 105 | MSP_EDGE_BOTTOM_DETECT | 底边检测 |
+| 106 | MSP_MACHINE_STATE | 机器工作状态，水平or竖直 |
+| 107 | MSP_THRESHOLD | 获取马达电流参数 |
+| 108 | MSP_ATTITUDE | 机器姿态角 |
+| 110 | MSP_ANALOG | AD数据 |
+| 111 | MSP_ADAPTER | 适配器电压 |
+| 114 | MSP_WATER_BOX | 水量检测 |
+| 115 | MSP_WIFI_RSSI | WIFI产测结果 |
+| 116 | MSP_WIFI_TEST | WIFI开始产测 |
+| 117 | MSP_FAST_CURRENT | 直行电流判断 |
+| 118 | MSP_Z_TURN_FAST_CURRENT | Z字水平换行电流 |
+| 119 | MSP_BARO_DIFF | 无边气压检测 |
+| 120 | MSP_SYSTICK | 系统周期 |
+| 121 | MSP_OVO_WATER_DET | 水量检测 |
+| 122 | MSP_LEAK_DET | 无边检测 |
+| 130 | MSP_GET_PWMVALUE | 获取风机占比 |
+| 131 | MSP_GET_USE_FAN_LEVEL_DYNAMIC_COMP | 获取风机最大最小占比 |
+| 132 | MSP_GET_USE_FAN_OUTPUT_PID | 获取风机恒压占比 |
+| 133 | MSP_GET_MOTOR_VALUE | 获取马达占比 |
+| 134 | MSP_GET_BOUNDLESS | 获取无边电流 |
+| 135 | MSP_GET_SPRAY_VALUE | 获取喷水功能 |
+| 136 | MSP_GET_GYRO_THRESHOLD | 获取陀螺仪阈值 |
+| 设置 |
+| 205 | MSP_ACC_CALIBRATION | 加速度校准 |
+| 208 | MSP_PLAY_VOICE | 测试语音 |
+| 209 | MSP_SET_SPRAY | 控制喷水 |
+| 211 | MSP_SET_FAN | 控制风机 |
+| 214 | MSP_SET_MOTOR | 控制马达 |
+| 215 | MSP_SET_TRIGGER | 发送触发信号 |
+| 220 | MSP_SET_PWMVALUE | 设置风机占比 |
+| 221 | MSP_SET_USE_FAN_LEVEL_DYNAMIC_COMP | 设置风机最大最小占比 |
+| 222 | MSP_SET_USE_FAN_OUTPUT_PID | 设置风机恒压占比 |
+| 223 | MSP_SET_MOTOR_VALUE | 设置马达占比 |
+| 224 | MSP_SET_BOUNDLESS | 设置无边电流 |
+| 225 | MSP_SET_SPRAY_VALUE | 设置喷水功能 |
+| 226 | MSP_SET_GYRO_THRESHOLD | 设置陀螺仪阈值 |
+
+### 擦窗机命令细节
+
+#### MSP_GET_PWMVALUE 130
+
+**Require：**
 
 | device | command | size |
 | ------ | ------- | ---- |
 | 0x02   | 130    | 0x00 |
 
-#### Response
+**Response：**
 
 | device | command | size | pwmValue |
 | ------ | ------- | ---- | -----------|
 | 0x02   | 130    | 0x01 | 8 bit unsigned |
 
-### MSP_GET_USE_FAN_LEVEL_DYNAMIC_COMP 131
+#### MSP_GET_USE_FAN_LEVEL_DYNAMIC_COMP 131
 
-#### Require
+**Require：**
 
 | device | command | size |
 | ------ | ------- | ---- |
 | 0x02   | 131    | 0x00 |
 
-#### Response
+**Response：**
 
 | device | command | size | pwmvalueMax | pwmvalueMin|
 | ------ | ------- | ---- | -----------|-----------|
 | 0x02   | 131    | 0x02 | 8 bit unsigned |8 bit unsigned |
 
-### MSP_GET_USE_FAN_OUTPUT_PID 132
+#### MSP_GET_USE_FAN_OUTPUT_PID 132
 
-#### Require
+**Require：**
 
 | device | command | size |
 | ------ | ------- | ---- |
 | 0x02   | 132    | 0x00 |
 
-#### Response
+**Response：**
 
 | device | command | size | fanPwmvalueAtIdle | fanPwmvalueMin|fanPwmvalueMax|defaultTargetFanPwmvalue|maxTargetFanPwmvalue|minTargetFanPwmvalue|
 | ------ | ------- | ---- | -----------|-----------|------- | ---- | -----------|-----------|
 | 0x02   | 132    | 0x09 | 8 bit unsigned |8 bit unsigned |8 bit unsigned |16 bit unsigned |16 bit unsigned |16 bit unsigned |
 
-### MSP_GET_MOTOR_VALUE 133
+#### MSP_GET_MOTOR_VALUE 133
 
-#### Require
+**Require：**
 
 | device | command | size |
 | ------ | ------- | ---- |
 | 0x02   | 133    | 0x00 |
 
-#### Response
+**Response：**
 
 | device | command | size | minPwmValue | upMinPwmValue|
 | ------ | ------- | ---- | -----------|-----------|
 | 0x02   | 133    | 0x02 | 8 bit unsigned |8 bit unsigned |
 
-### MSP_GET_BOUNDLESS 134
+#### MSP_GET_BOUNDLESS 134
 
-#### Require
+**Require：**
 
 | device | command | size |
 | ------ | ------- | ---- |
 | 0x02   | 134    | 0x00 |
 
-#### Response
+**Response：**
 
 | device | command | size | fanThrdAddE | fanUpThrdAdd|hangCnt|
 | ------ | ------- | ---- | -----------|-----------| -----------|
 | 0x02   | 134    | 0x03 | 8 bit unsigned |8 bit unsigned |8 bit unsigned |
 
-### MSP_GET_SPRAY_VALUE 135
+#### MSP_GET_SPRAY_VALUE 135
 
-#### Require
+**Require：**
 
 | device | command | size |
 | ------ | ------- | ---- |
 | 0x02   | 135    | 0x00 |
 
-#### Response
+**Response：**
 
 | device | command | size | waterPump | waterPumpDuration|waterPumpStartAngle|waterPumpMoveCnt|
 | ------ | ------- | ---- | -----------|-----------| -----------|-----------|
 | 0x02   | 135    | 0x05 | 8 bit unsigned |16 bit unsigned |8 bit unsigned |8 bit unsigned |
 
-### MSP_GET_GYRO_THRESHOLD 136
+#### MSP_GET_GYRO_THRESHOLD 136
 
-#### Require
+**Require：**
 
 | device | command | size |
 | ------ | ------- | ---- |
 | 0x02   | 136    | 0x00 |
 
-#### Response
+**Response：**
 
 | device | command | size | gyroDiffThreshold | gyroThreshold|gyroUpDiffThreshold|gyroUpThreshold|
 | ------ | ------- | ---- | -----------|-----------| -----------|-----------|
 | 0x02   | 136    | 0x04 | 8 bit unsigned |8 bit unsigned |8 bit unsigned |8 bit unsigned |
 
-### MSP_SET_PWMVALUE 220
+#### MSP_SET_PWMVALUE 220
 
-#### Require
+**Require：**
 
 | device | command | size | pwmValue |
 | ------ | ------- | ---- | -----------|
 | 0x02   | 220    | 0x01 | 8 bit unsigned |
 
-#### Response
+**Response：**
 
 Simple response
 
-### MSP_SET_USE_FAN_LEVEL_DYNAMIC_COMP 221
+#### MSP_SET_USE_FAN_LEVEL_DYNAMIC_COMP 221
 
-#### Require
+**Require：**
 
 | device | command | size | pwmvalueMax | pwmvalueMin|
 | ------ | ------- | ---- | -----------|-----------|
 | 0x02   | 221    | 0x02 | 8 bit unsigned |8 bit unsigned |
 
-#### Response
+**Response：**
 
 Simple response
 
-### MSP_SET_USE_FAN_OUTPUT_PID 222
+#### MSP_SET_USE_FAN_OUTPUT_PID 222
 
-#### Require
+**Require：**
 
 | device | command | size | fanPwmvalueAtIdle | fanPwmvalueMin|fanPwmvalueMax|defaultTargetFanPwmvalue|maxTargetFanPwmvalue|minTargetFanPwmvalue|
 | ------ | ------- | ---- | -----------|-----------|------- | ---- | -----------|-----------|
 | 0x02   | 222    | 0x09 | 8 bit unsigned |8 bit unsigned |8 bit unsigned |16 bit unsigned |16 bit unsigned |16 bit unsigned |
 
-#### Response
+**Response：**
 
 Simple response
 
-### MSP_SET_MOTOR_VALUE 223
+#### MSP_SET_MOTOR_VALUE 223
 
-#### Require
+**Require：**
 
 | device | command | size | minPwmValue | upMinPwmValue|
 | ------ | ------- | ---- | -----------|-----------|
 | 0x02   | 223    | 0x02 | 8 bit unsigned |8 bit unsigned |
 
-#### Response
+**Response：**
 
 Simple response
 
-### MSP_SET_BOUNDLESS 224
+#### MSP_SET_BOUNDLESS 224
 
-#### Require
+**Require：**
 
 | device | command | size | fanThrdAddE | fanUpThrdAdd|hangCnt|
 | ------ | ------- | ---- | -----------|-----------| -----------|
 | 0x02   | 134    | 0x03 | 8 bit unsigned |8 bit unsigned |8 bit unsigned |
 
-#### Response
+**Response：**
 
 Simple response
 
-### MSP_SET_SPRAY_VALUE 225
+#### MSP_SET_SPRAY_VALUE 225
 
-#### Require
+**Require：**
 
 | device | command | size | waterPump | waterPumpDuration|waterPumpStartAngle|waterPumpMoveCnt|
 | ------ | ------- | ---- | -----------|-----------| -----------|-----------|
 | 0x02   | 225    | 0x05 | 8 bit unsigned |16 bit unsigned |8 bit unsigned |8 bit unsigned |
 
-#### Response
+**Response：**
 
 Simple response
 
-### MSP_SET_GYRO_THRESHOLD 226
+#### MSP_SET_GYRO_THRESHOLD 226
 
-#### Require
+**Require：**
 
 | device | command | size | gyroDiffThreshold | gyroThreshold|gyroUpDiffThreshold|gyroUpThreshold|
 | ------ | ------- | ---- | -----------|-----------| -----------|-----------|
 | 0x02   | 136    | 0x04 | 8 bit unsigned |8 bit unsigned |8 bit unsigned |8 bit unsigned |
 
-#### Response
+**Response：**
 
 Simple response
+
+
 
