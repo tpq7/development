@@ -78,6 +78,13 @@
 
 .. toctree::
    :maxdepth: 2
+   :caption: GNU
+
+   GNU/install-arm-none-eabi-gcc
+   GNU/ld
+
+.. toctree::
+   :maxdepth: 2
    :caption: Protocol
 
    Protocol/Ble Protocols
