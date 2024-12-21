@@ -1,13 +1,23 @@
-# Kicad在3D Viewer中隐藏部分元器件
+# 板厂制程
 
-## 在原理图中选中不要在3D Viewer中显示的元器件
+## 领创
 
-![image](image/kicad-toggle-components-in-3d-1.gif)
+* 线宽线距: 3/3mil  4/4mil  5/5mil   8/8mil  (建议8/10mil)
+* 位号大小: 高20mil 宽20mil
+* 字符大小: 高40mil 宽40mil
+* 线到边: 10mil(建议20mil)
+* v-cut到铜皮:  8-10mil(h=1.6)
+* 单边孔环: 4mil(过孔)  6mil(器件)
+* 最小孔径: 6mil
+* 最小槽孔: 20mil
+* 最小孔距: 8mil(同)  10mil(不同)
 
-## 在PCB Editor左侧Footprint Properties中选择Exclude from position files
+## 金辉-用于纸板碳油工艺
 
-![image](image/kicad-toggle-components-in-3d-2.gif)
-
-## 在3D Viewer中点击Toggle 3D models not in pos file即可切换是否显示对于的元器件
-
-![image](image/kicad-toggle-components-in-3d-3.gif)
+* 线宽: 8mil/20(底层)  40/60mil(表层)
+* 最小间距: 10mil
+* 字符大小: 线宽6mil 字高字宽40mil
+* 线到边:  10mil(建议20mil)
+* 孔到边: 50mil
+* 孔到线: 50mil
+* 孔大小：1.2x0.7mm   （48x28mil）

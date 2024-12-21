@@ -98,3 +98,16 @@ Library\kicad_dr_2_m\kicad_dr_2_m.kicad_pcb
 参考如下文档：
 
 [如何新建封装](https://docs.kicad.org/8.0/zh/getting_started_in_kicad/getting_started_in_kicad.html#%E6%96%B0%E5%BB%BA%E5%B0%81%E8%A3%85)
+
+## 遥控器纸板碳油单层板工艺设计注意事项
+
+* 表层走线40/60mil, 底层走线8/20mil, 过孔用48/28mil,
+表层间距50mil, 底层最小间距8mil,孔到线50mil，
+
+### 封装设计规范
+
+●焊盘使用datasheet中layout guide的设计
+●Fab层为焊盘大小                         w=0.1mm
+●Silkscreen层距焊盘 0.11mm       w=0.12mm
+●Courtyard层距焊盘 0.25mm       w=0.05mm
+●一脚标识--丝印层用三角形,fab层用0.8mm的缺口
